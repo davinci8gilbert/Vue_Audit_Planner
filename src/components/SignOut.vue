@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     proceed() {
-      
+      //code to execute if the user clicks "OK"
       this.$router.push({ name: "mainlogin" }).then(() => {
       window.location.reload(true); // Perform a hard refresh
       });
@@ -30,6 +30,10 @@ export default {
       // Code to execute if the user clicks "Cancel"
       console.log("User clicked Cancel");
       this.showModal = false;
+      this.$router.push({ name: "auditornavigation" }).then(() => {
+      window.location.reload(true); // Perform a hard refresh
+      });
+
     }
   }
 }
@@ -48,12 +52,9 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 .modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 5px;
 }
-
-/* Add more styles as needed */
 </style>

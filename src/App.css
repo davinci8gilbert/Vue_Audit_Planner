@@ -356,6 +356,43 @@ body {
     
   }
 
+  .main-container-box{
+    margin:20px;
+    height: 800px;
+    padding: 6px;
+    background-color:  #cbc3c5;
+    color: aliceblue;
+    border-radius: 15px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .sub-container-box{
+    display:flex;
+    margin: 5px;
+    border:1px;
+    border-style:solid;
+    border-radius: 4px;
+    justify-content: center;
+    
+  }
+
+  #box-dash{
+    display:flex;
+    width: 800px;
+    height:300px;
+    margin: 30px;
+    border:1px;
+    border-style:solid;
+    text-align:center;
+    justify-content: center; /* Horizontally centers the content */
+    align-items: center;
+    border-radius: 15px;
+  }
+
+
+
  
 
   

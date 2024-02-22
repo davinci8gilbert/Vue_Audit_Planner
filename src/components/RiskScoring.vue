@@ -5,8 +5,7 @@
 
         <span id="pop-unitname">Unit Name: {{ unit }}</span>
         <table class="table-score">
-            <tr>
-                
+            <tr>             
                 <th>Factor</th>
                 <th>Credit Risk - Loan Portfolio Risk</th>
                 <th>Credit Risk - Counterparty Credit Risk</th>
@@ -26,11 +25,8 @@
                 <th>AML and Financial Crime Risk</th>
                 <th>ESG Risk</th>
                 <th>Conduct Risk</th>
-            </tr>
-           
-                    
-                <tr v-for="(item, index) in factorsForScoring" :key="index">
-                    
+            </tr>                  
+                <tr v-for="(item, index) in factorsForScoring" :key="index">                   
                     <td><label> {{item.factorName}}</label></td>
                     <td><select v-model="crLoanPortfolioRiskScore[index]">                      
                         <option v-for="score in scores" :key="score" :value="score" >{{ score }} </option>
@@ -86,8 +82,7 @@
                     <td><select v-model="conductRiskScore[index]">
                         <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
                     </select></td>
-                 </tr>
-           
+                 </tr>          
             <p></p>
             <div class="button-riskscore">
             <button id="buttonScoreSave" @click="saveScores(), getUpdateSave(false)">Save</button>
@@ -100,8 +95,6 @@
 
 <script>
 import RiskScoringService from '@/services/RiskScoringService';
-
-
 export default {
     name: "RiskScoring",
     props:{
@@ -135,9 +128,7 @@ export default {
             unitSelected:'',
             totalScore:0,
             factorWithScores:{},
-            factorId:0,
-            
-            
+            factorId:0,           
         }
     },
     methods:{
@@ -146,15 +137,12 @@ export default {
                 .then(response =>{
                     this.unitsForScoring=response.data;
                     console.log(this.unitsForScoring);
-
-                    this.storeFactorsForScoring(this.unit);
-                    
+                    this.storeFactorsForScoring(this.unit);                    
                 })
                 .catch(error =>{
                     console.log(error)
                 })
         },
-
         storeFactorsForScoring(unit){
            this.unitsForScoring.forEach(unitItem =>{
             if(unitItem.auditee.unit === unit){
@@ -162,9 +150,7 @@ export default {
                 console.log(this.factorsForScoring)
                 console.log(unitItem.id)
             }
-
-           })
-          
+           })         
         },
         sumTotalScore(){
             this.crLoanPortfolioRiskScore.forEach(x =>{
@@ -202,9 +188,7 @@ export default {
                     esgRisk:this.esgRiskScore[i],
                     conductRisk:this.conductRiskScore[i]
                 }
-
-                this.factorId= this.factorsForScoring[i].id
-               
+                this.factorId= this.factorsForScoring[i].id               
                 RiskScoringService.updateScores(this.factorId,this.factorWithScores)
                 .then(response =>{
                     console.log(response.data);
@@ -212,24 +196,17 @@ export default {
                 .catch(error =>{
                     console.log(error);
                 })
-
             }
-
             window.alert("You have successfully saved the scores!");
-            this.clearChecking(true);
-            
+            this.clearChecking(true);            
             this.$router.push({ name: "auditornavigation" }).then(() => {
             window.location.reload(true); // Perform a hard refresh
             });
-
         },
-        cancel(){
-            
+        cancel(){           
             window.alert("Your changes will not be saved!");
         }
-
     },
-
     created() {
     // Initialize the scores arrays to 0
         this.crLoanPortfolioRiskScore = new Array(9).fill(0);
@@ -251,16 +228,10 @@ export default {
         this.esgRiskScore = new Array(9).fill(0);
         this.conductRiskScore= new Array(9).fill(0);
         },
-
     mounted(){
-        this.retrieveUnitsForScoring();
-       
-        
+        this.retrieveUnitsForScoring();       
     },
-    watch:{
-        
-
-        
+    watch:{      
     }
 
 }

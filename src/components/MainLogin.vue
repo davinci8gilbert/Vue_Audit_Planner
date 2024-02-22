@@ -16,10 +16,6 @@
                 <button type="submit" @click="login">Login</button>
             </div>
         </form>
-        <!-- <p>
-            <router-link to="/setPassword">Set Password</router-link>
-        </p> -->
-
         <p>{{ message }}</p>
     </div>
 </template>
@@ -60,7 +56,6 @@ export default {
                             this.$router.push({ name: "chiefnavigation" });
 
                         }
-
                     })
                     .catch(error => {
                         this.employeeLoginRequest.userName = "";
@@ -70,17 +65,11 @@ export default {
                         console.log(error.response.data);
                     })
             }
-
-
-
         }
-
     },
-
     mounted() {
 
         this.message = "";
-
     }
 }
 

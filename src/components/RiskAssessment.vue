@@ -136,10 +136,7 @@ export default {
     },
     getSelectedUnits(selectedUnit){
       this.selectedUnit = selectedUnit;
-      this.unit = this.selectedUnit.auditee.unit
-
-      // console.log(this.selectedUnit);
-
+      this.unit = this.selectedUnit.auditee.unit;
     },
     showScoringEvent(index){
     
@@ -150,10 +147,8 @@ export default {
        
         window.alert("You have not ticked the checkbox!")
       }
-
-      
+     
     },
-
     clearChecking(savedDone){
       if(savedDone===true){
         this.isChecked= new Array(length).fill(false);
@@ -161,23 +156,10 @@ export default {
       }  
       
       },  
-
    getUpdateSave(value){
       this.showRiskScoring = value;
       this.isChecked= new Array(length).fill(false);
    },
-
-   
-  //  getAllUnits(){
-  //     AuditeeService.getAuditees()
-  //       .then(response =>{
-  //         this.unitsForAssessment = response.data;
-  //       })
-  //       .catch(error =>{
-  //         console.log(error);
-  //       })     
-  //  },
-
    getAllSummaryScores(){
       RiskScoringService.getSummaryScores()
         .then(response =>{
@@ -188,8 +170,7 @@ export default {
           console.log(error)
         })
    },
-
-   async getAllAssessmentScores(){
+  async getAllAssessmentScores(){
 
     try{
       const response = await RiskScoringService.getAssessmentScores();
@@ -215,8 +196,7 @@ export default {
               this.risks[15]+=(this.assessmentScoresAll[i].amlFinancialCrimeRisk)*this.assessmentScoresAll[i].factorWeight;
               this.risks[16]+=(this.assessmentScoresAll[i].esgRisk)*this.assessmentScoresAll[i].factorWeight;
               this.risks[17]+=(this.assessmentScoresAll[i].esgRisk)*this.assessmentScoresAll[i].factorWeight;
-              
-
+          
               //if statement to cut-off scores when all the factors are covered
               if(this.counter == 8){
                 //loop to add all scores the risks and count all scores that have non-zero values
@@ -225,8 +205,6 @@ export default {
                   if(!isNaN(this.risks[i])){
                     this.totalSummaryScores +=this.risks[i];
                   }
-
-                  console.log("risk score: "+ this.risks[i])
                   if(this.risks[i]!==0&&!isNaN(this.risks[i])) {
                     
                     this.nonZeroScoreCount++
@@ -242,8 +220,7 @@ export default {
                 }else{
                   this.benchmarkActual = "Erroneous Score";
                 }
-                console.log(this.totalSummaryScores+"  "+this.nonZeroScoreCount+"   "+this.benchmarkActual+"  checking for counted values" )
-
+               
                 let data = {
                           auditee:{
                             id:this.assessmentScoresAll[i].auditee.id,
@@ -279,8 +256,7 @@ export default {
                     this.counter = 0;
                     this.totalSummaryScores=0;
                     this.nonZeroScoreCount=0;
-                    this.benchmarkActual='';
-                    
+                    this.benchmarkActual='';                   
               }
               this.counter++;
         }
@@ -290,9 +266,6 @@ export default {
     }
 
    },
-
-   
-
     
   },
   mounted(){
@@ -305,9 +278,7 @@ export default {
     showFactor(){
       this.getAllSummaryScores();
     }
-  }
-
-  
+  } 
 }
 </script>
 
