@@ -13,9 +13,14 @@ body {
 
   .table-score {
     border-collapse: collapse;
-    width: 100%;
+    width: auto;
     margin-left: 0;
-    margin-right: auto;
+    margin-right: auto;  
+    
+  }
+
+  .table-score th{
+    background: #8c0f26;
   }
 
   .pop-container{
@@ -25,10 +30,31 @@ body {
     margin: 20px auto;
     background: white;
     border-radius: 10px;
+    
+  }
+
+  .pop-header{
+    height: 15px;
+    display:flex;
+    flex-wrap:nowrap;
+    padding: 8px 5px 5px 8px;
+    color:white;
+    font-size:x-large;
+    background-color: #520513;
+  }
+
+  #pop-unitname{
+    height: 30px;
+    display:flex;
+    flex-wrap:nowrap;
+    padding: 8px 8px 8px 8px;
+    color:white;
+    font-size: larger;
+    background-color: #520513;
   }
 
   .header {
-    height: px;
+    height: 80px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -36,7 +62,7 @@ body {
     margin: 0;
     padding: 0 8px 0 8px;
     width: auto;
-    background-color: #676F54;
+    background: linear-gradient(to bottom, #520513,white);
   
   }
   
@@ -54,7 +80,7 @@ body {
   
   .nav-links button {
     padding: 9px;
-    background-color: #72883F;
+    background-color: #520513;
     margin-right: 8px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
@@ -102,9 +128,12 @@ body {
   }
   
   .login-form {
-    width: 40%;
+    width: 30%;
+    height: 30%;
     margin: auto;
-    margin-top: 16px;
+    margin-top: 200px;
+    background-color:#f3eff0;
+    border-radius: 15px 15px 15px 15px;
   }
   
   
@@ -114,14 +143,15 @@ body {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid #848181;
     border-radius: 4px;
     box-sizing: border-box;
+    background: #f2d4d9;
   }
   
   .login-form button {
     width: 100%;
-    background-color: #72883F;
+    background-color: #520513;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -129,9 +159,15 @@ body {
     border-radius: 4px;
     cursor: pointer;
   }
+
+  #login_label{
+    display:flex;
+    padding:8px;
+    font-weight: 700;
+  }
   
   .login-form input[type=submit]:hover {
-    background-color: #676F54;
+    background-color: #787b72;
   }
   
   table {
@@ -146,7 +182,7 @@ body {
     padding-top: 4px;
     padding-bottom: 4px;
     text-align:center;
-    background-color: #72883F;
+    background-color: #8c0f26;
     color: white;
   }
   
@@ -311,9 +347,17 @@ body {
     margin-bottom: auto;
   }
 
+  .button-riskscore{
+    display:flex;
+  }
+  
   button{
     margin:3px;
+    
   }
+
+ 
+
   
   
   

@@ -1,9 +1,9 @@
 <template>
   <div class="backdrop">
     <div class="pop-container">
-        <div class="pop-header">Risk Scoring</div>
+        <div class="pop-header">RISK SCORING</div>
 
-        <span>Unit Name: {{ unit }}</span>
+        <span id="pop-unitname">Unit Name: {{ unit }}</span>
         <table class="table-score">
             <tr>
                 
@@ -89,9 +89,10 @@
                  </tr>
            
             <p></p>
+            <div class="button-riskscore">
             <button id="buttonScoreSave" @click="saveScores(), getUpdateSave(false)">Save</button>
-            <button id="buttonClose" @click="getUpdateSave(false)">Close</button>
-
+            <button id="buttonClose" @click="getUpdateSave(false),cancel()">Cancel</button>
+            </div>
         </table>
     </div>
   </div>
@@ -221,7 +222,12 @@ export default {
             window.location.reload(true); // Perform a hard refresh
             });
 
+        },
+        cancel(){
+            
+            window.alert("Your changes will not be saved!");
         }
+
     },
 
     created() {
