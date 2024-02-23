@@ -16,7 +16,7 @@
                 <button type="submit" @click="login">Login</button>
             </div>
         </form>
-        <p>{{ message }}</p>
+        <!-- <p>{{ message }}</p> -->
     </div>
 </template>
 
