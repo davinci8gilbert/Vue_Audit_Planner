@@ -112,7 +112,7 @@ export default {
       isUnitChanged:true,
       showButton:false,
       assessmentScoresAll:[],
-      risks:[0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      risks:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       assessmentScoresAll2:[],
       counter:0,
       totalSummaryScores:0,
@@ -170,9 +170,13 @@ export default {
           console.log(error)
         })
    },
+   //async keyword is appended in the function when it returns a promise such when you need to get data from the database.  In below case,
+   //getAssessmentScores() involves a promise and is marked with keyword await.  This means, the functions will not proceed with its codes until the
+   //the Promise is settled such as when there is a response from ths server.
   async getAllAssessmentScores(){
 
     try{
+      //gets all the data
       const response = await RiskScoringService.getAssessmentScores();
       this.assessmentScoresAll = response.data;
         console.log(this.assessmentScoresAll);
@@ -195,7 +199,7 @@ export default {
               this.risks[14]+=(this.assessmentScoresAll[i].interestRateRisk)*this.assessmentScoresAll[i].factorWeight;
               this.risks[15]+=(this.assessmentScoresAll[i].amlFinancialCrimeRisk)*this.assessmentScoresAll[i].factorWeight;
               this.risks[16]+=(this.assessmentScoresAll[i].esgRisk)*this.assessmentScoresAll[i].factorWeight;
-              this.risks[17]+=(this.assessmentScoresAll[i].esgRisk)*this.assessmentScoresAll[i].factorWeight;
+              this.risks[17]+=(this.assessmentScoresAll[i].conductRisk)*this.assessmentScoresAll[i].factorWeight;
           
               //if statement to cut-off scores when all the factors are covered
               if(this.counter == 8){
@@ -215,7 +219,7 @@ export default {
                   this.benchmarkActual = "Low Risk";
                 }else if(this.totalSummaryScores >this.nonZeroScoreCount*3 &&this.totalSummaryScores <=this.nonZeroScoreCount*7 ){
                   this.benchmarkActual = "Medium Risk";
-                }else if(this.totalSummaryScores <this.nonZeroScoreCount*7&&this.totalSummaryScores <=this.nonZeroScoreCount*10){
+                }else if(this.totalSummaryScores >this.nonZeroScoreCount*7&&this.totalSummaryScores <=this.nonZeroScoreCount*10){
                   this.benchmarkActual = "High Risk";
                 }else{
                   this.benchmarkActual = "Erroneous Score";
@@ -253,12 +257,14 @@ export default {
                     const response = await RiskScoringService.updateSummaryScoresDB(this.assessmentScoresAll[i].auditee.id, data);
                     console.log(response.data);
                     this.risks = new Array(this.risks.length).fill(0);
-                    this.counter = 0;
                     this.totalSummaryScores=0;
                     this.nonZeroScoreCount=0;
                     this.benchmarkActual='';                   
               }
               this.counter++;
+              if(this.counter==9){
+                this.counter=0;
+              }
         }
 
     }catch (error){

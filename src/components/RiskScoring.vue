@@ -202,10 +202,14 @@ export default {
             this.$router.push({ name: "auditornavigation" }).then(() => {
             window.location.reload(true); // Perform a hard refresh
             });
+
+            this.hardRefresh();
+            
         },
         cancel(){           
             window.alert("Your changes will not be saved!");
-        }
+        },
+  
     },
     created() {
     // Initialize the scores arrays to 0
@@ -229,7 +233,8 @@ export default {
         this.conductRiskScore= new Array(9).fill(0);
         },
     mounted(){
-        this.retrieveUnitsForScoring();       
+        this.retrieveUnitsForScoring();    
+
     },
     watch:{      
     }
