@@ -44,11 +44,12 @@ export default {
                         let item = response.data;
                         console.log(item)
                         localStorage.setItem('eid', item.userName);
-
-                    
+                        localStorage.setItem('auditorName',item.auditorName)
                         localStorage.setItem('role', item.role);
-                        localStorage.setItem('teamName',item.teamName)
-                        console.log("Response tadsfasdfo",item.auditorName, item.teamName);
+                        localStorage.setItem('teamName',item.teamName);
+                        localStorage.setItem('id',item.id),
+                        localStorage.setItem('pWord',item.password)
+                        console.log("Access Data Retrieved",item.auditorName, item.teamName);
                         if (item.role === "Manager" ) {
                             this.$router.push({ name: "auditornavigation" });
                         }
@@ -61,7 +62,7 @@ export default {
                         this.employeeLoginRequest.userName = "";
                         this.employeeLoginRequest.password = "";
                         this.message = error.response.data.message;
-                        window.alert("Some of the credentials are wrong. Try again please");
+                        window.alert("There are some errors in the credentials. Please try again.");
                         console.log(error.response.data);
                     })
             }

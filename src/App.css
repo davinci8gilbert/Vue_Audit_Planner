@@ -391,6 +391,83 @@ body {
     border-radius: 15px;
   }
 
+  .ralloc-table{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:90%;
+    height:90%;
+    padding: 20px;
+    margin: 20px auto;
+    border:1px;
+    border-style:solid;   
+    border-radius: 10px;   
+  }
+
+  #ralloc-tablearea{
+    border-collapse:separate;
+    width: 80%;
+    margin-left: 0;
+    margin-right: 0; 
+    margin-bottom: 20px;
+    border: 1px solid ;
+    border-radius: 15px;
+    padding: 5px
+  }
+
+  #tab-lvl1{
+    text-align: left;
+    font-weight: bold;
+  }
+
+  #tab-lvl2{
+    text-align: left;
+    padding-left: 50px;
+   
+  }
+
+  #tab-lvl3{
+    text-align: left;
+    padding-left: 80px;
+    font-weight: bold;
+   
+  }
+
+  #ralloc-units{
+    border-collapse:separate;
+    width: 80%;
+    margin-left: 0;
+    margin-right: 0; 
+    margin-bottom: 20px;
+    border: 1px solid ;
+    border-radius: 15px;
+    padding: 5px
+  }
+
+  #table2-title{
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  .btn-alloc{
+   text-align: left;
+   width: 80%;
+   padding: 0px;
+  }
+
+  #btn-alloc{
+    padding: 10px;
+    border-radius: 10px;
+   }
+
+   input{
+    text-align: center;
+   }
+
+
+  
+
 
 
  
