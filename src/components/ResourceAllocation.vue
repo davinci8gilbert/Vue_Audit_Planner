@@ -18,27 +18,27 @@
         </tr>
         <tr>
           <td id="tab-lvl2">Headcount</td>
-          <td><input type="text" v-model.number= "headcount[0]" :disabled=isInputDisabled(1)></td>
-          <td><input type="text" v-model.number= "headcount[1]" :disabled=isInputDisabled(2)></td>
-          <td><input type="text" v-model.number= "headcount[2]" :disabled=isInputDisabled(3)></td>
-          <td><input type="text" v-model.number= "headcount[3]" :disabled=isInputDisabled(4)></td>
+          <td><input type="text" v-model.number= "headcount[0]" :disabled="isInputDisabled(1)||isDisabled"></td>
+          <td><input type="text" v-model.number= "headcount[1]" :disabled=isInputDisabled(2)||isDisabled></td>
+          <td><input type="text" v-model.number= "headcount[2]" :disabled=isInputDisabled(3)||isDisabled></td>
+          <td><input type="text" v-model.number= "headcount[3]" :disabled=isInputDisabled(4)||isDisabled></td>
           <td><span>{{ headcount[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Number Of Working Days</td>
-          <td><input type="text" v-model.number= "numberOfWorkDays[0]" :disabled=isInputDisabled(1)></td>
-          <td><input type="text" v-model.number= "numberOfWorkDays[1]" :disabled=isInputDisabled(2)></td>
-          <td><input type="text" v-model.number= "numberOfWorkDays[2]" :disabled=isInputDisabled(3)></td>
-          <td><input type="text" v-model.number= "numberOfWorkDays[3]" :disabled=isInputDisabled(4)></td>
+          <td><input type="text" v-model.number= "numberOfWorkDays[0]" :disabled=isInputDisabled(1)||isDisabled></td>
+          <td><input type="text" v-model.number= "numberOfWorkDays[1]" :disabled=isInputDisabled(2)||isDisabled></td>
+          <td><input type="text" v-model.number= "numberOfWorkDays[2]" :disabled=isInputDisabled(3)||isDisabled></td>
+          <td><input type="text" v-model.number= "numberOfWorkDays[3]" :disabled=isInputDisabled(4)||isDisabled></td>
           <td><span>{{ numberOfWorkDays[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Number of Daily Work Hours</td>
-          <td><input type="text" v-model.number= "numberOfDailyWorkHours[0]" :disabled=isInputDisabled(1)></td>
-          <td><input type="text" v-model.number= "numberOfDailyWorkHours[1]" :disabled=isInputDisabled(2)></td>
-          <td><input type="text" v-model.number= "numberOfDailyWorkHours[2]" :disabled=isInputDisabled(3)></td>
-          <td><input type="text" v-model.number= "numberOfDailyWorkHours[3]" :disabled=isInputDisabled(4)></td>
-          <td><span>{{ numberOfDailyWorkHours[4] }}</span></td>
+          <td><input type="text" v-model.number= "numberOfDailyWorkHours[0]" :disabled=isInputDisabled(1)||isDisabled></td>
+          <td><input type="text" v-model.number= "numberOfDailyWorkHours[1]" :disabled=isInputDisabled(2)||isDisabled></td>
+          <td><input type="text" v-model.number= "numberOfDailyWorkHours[2]" :disabled=isInputDisabled(3)||isDisabled></td>
+          <td><input type="text" v-model.number= "numberOfDailyWorkHours[3]" :disabled=isInputDisabled(4)||isDisabled></td>
+          <td><span></span></td>
         </tr>
         <tr>
           <td id="tab-lvl3">Total Working Hours</td>
@@ -56,50 +56,50 @@
         </tr>
         <tr>
           <td id="tab-lvl2"> Annual Leaves</td>
-          <td><input type="number" v-model.number= "annualLeaves[0]" :disabled=isInputDisabled(1)></td>
-          <td><input type="number" v-model.number= "annualLeaves[1]" :disabled=isInputDisabled(2)></td>
-          <td><input type="number" v-model.number= "annualLeaves[2]" :disabled=isInputDisabled(3)></td>
-          <td><input type="number" v-model.number= "annualLeaves[3]" :disabled=isInputDisabled(4)></td>
+          <td><input type="number" v-model.number= "annualLeaves[0]" :disabled=isInputDisabled(1)||isDisabled></td>
+          <td><input type="number" v-model.number= "annualLeaves[1]" :disabled=isInputDisabled(2)||isDisabled></td>
+          <td><input type="number" v-model.number= "annualLeaves[2]" :disabled=isInputDisabled(3)||isDisabled></td>
+          <td><input type="number" v-model.number= "annualLeaves[3]" :disabled=isInputDisabled(4)||isDisabled></td>
           <td><span>{{ annualLeaves[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Maternity Leave (Known)</td>
-          <td><input type="number" v-model.number= "maternityLeave[0]" :disabled=isInputDisabled(1)></td>
-          <td><input type="number" v-model.number= "maternityLeave[1]" :disabled=isInputDisabled(2)></td>
-          <td><input type="number" v-model.number= "maternityLeave[2]" :disabled=isInputDisabled(3)></td>
-          <td><input type="number" v-model.number= "maternityLeave[3]" :disabled=isInputDisabled(4)></td>
+          <td><input type="number" v-model.number= "maternityLeave[0]" :disabled=isInputDisabled(1)||isDisabled></td>
+          <td><input type="number" v-model.number= "maternityLeave[1]" :disabled=isInputDisabled(2)||isDisabled></td>
+          <td><input type="number" v-model.number= "maternityLeave[2]" :disabled=isInputDisabled(3)||isDisabled></td>
+          <td><input type="number" v-model.number= "maternityLeave[3]" :disabled=isInputDisabled(4)||isDisabled></td>
           <td><span>{{ maternityLeave[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Annual Planning Activities</td>
-          <td><input type="number" v-model.number= "annualPlanningAct[0]" :disabled=isInputDisabled(1)></td>
-          <td><input type="number" v-model.number= "annualPlanningAct[1]" :disabled=isInputDisabled(2)></td>
-          <td><input type="number" v-model.number= "annualPlanningAct[2]" :disabled=isInputDisabled(3)></td>
-          <td><input type="number" v-model.number= "annualPlanningAct[3]" :disabled=isInputDisabled(4)></td>
+          <td><input type="number" v-model.number= "annualPlanningAct[0]" :disabled=isInputDisabled(1)||isDisabled></td>
+          <td><input type="number" v-model.number= "annualPlanningAct[1]" :disabled=isInputDisabled(2)||isDisabled></td>
+          <td><input type="number" v-model.number= "annualPlanningAct[2]" :disabled=isInputDisabled(3)||isDisabled></td>
+          <td><input type="number" v-model.number= "annualPlanningAct[3]" :disabled=isInputDisabled(4)||isDisabled></td>
           <td><span>{{ annualPlanningAct[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Continuous Audit</td>
-          <td><input type="number" v-model.number= "continuousAudit[0]" :disabled=isInputDisabled(1)></td>
-          <td><input type="number" v-model.number= "continuousAudit[1]" :disabled=isInputDisabled(2)></td>
-          <td><input type="number" v-model.number= "continuousAudit[2]" :disabled=isInputDisabled(3)></td>
-          <td><input type="number" v-model.number= "continuousAudit[3]" :disabled=isInputDisabled(4)></td>
+          <td><input type="number" v-model.number= "continuousAudit[0]" :disabled=isInputDisabled(1)||isDisabled></td>
+          <td><input type="number" v-model.number= "continuousAudit[1]" :disabled=isInputDisabled(2)||isDisabled></td>
+          <td><input type="number" v-model.number= "continuousAudit[2]" :disabled=isInputDisabled(3)||isDisabled></td>
+          <td><input type="number" v-model.number= "continuousAudit[3]" :disabled=isInputDisabled(4)||isDisabled></td>
           <td><span>{{ continuousAudit[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Administrative Activities</td>
-          <td><input type="number" v-model.number= "adminActivities[0]" :disabled=isInputDisabled(1)></td>
-          <td><input type="number" v-model.number= "adminActivities[1]" :disabled=isInputDisabled(2)></td>
-          <td><input type="number" v-model.number= "adminActivities[2]" :disabled=isInputDisabled(3)></td>
-          <td><input type="number" v-model.number= "adminActivities[3]" :disabled=isInputDisabled(4)></td>
+          <td><input type="number" v-model.number= "adminActivities[0]" :disabled=isInputDisabled(1)||isDisabled></td>
+          <td><input type="number" v-model.number= "adminActivities[1]" :disabled=isInputDisabled(2)||isDisabled></td>
+          <td><input type="number" v-model.number= "adminActivities[2]" :disabled=isInputDisabled(3)||isDisabled></td>
+          <td><input type="number" v-model.number= "adminActivities[3]" :disabled=isInputDisabled(4)||isDisabled></td>
           <td><span>{{ adminActivities[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Contingency Budget</td>
-          <td><input type="number" v-model.number= "contingencyBudget[0]" :disabled=isInputDisabled(1)></td>
-          <td><input type="number" v-model.number= "contingencyBudget[1]" :disabled=isInputDisabled(2)></td>
-          <td><input type="number" v-model.number= "contingencyBudget[2]" :disabled=isInputDisabled(3)></td>
-          <td><input type="number" v-model.number= "contingencyBudget[3]" :disabled=isInputDisabled(4)></td>
+          <td><input type="number" v-model.number= "contingencyBudget[0]" :disabled=isInputDisabled(1)||isDisabled></td>
+          <td><input type="number" v-model.number= "contingencyBudget[1]" :disabled=isInputDisabled(2)||isDisabled></td>
+          <td><input type="number" v-model.number= "contingencyBudget[2]" :disabled=isInputDisabled(3)||isDisabled></td>
+          <td><input type="number" v-model.number= "contingencyBudget[3]" :disabled=isInputDisabled(4)||isDisabled></td>
           <td><span>{{ contingencyBudget[4] }}</span></td>
         </tr>
         <tr>
@@ -140,79 +140,141 @@
         </tr>
       </table>
       <div class="btn-alloc">
-        <button id="btn-alloc" v-if=btnConditionAlloc @click="postDataResource()">Allocate Manhours</button>
-        <button id="btn-alloc" v-if=btnConditionEdit>Edit Resource</button>
+        <button id="btn-alloc" v-if=btnConditionAlloc @click="postDataResource(), showAllocationTable()">Allocate Manhours</button>
+        <button id="btn-alloc" v-if=btnConditionEdit @click="editResource()">Edit Resource</button>
       </div>
-      <p id="table2-title">MANHOUR ALLOCATION FOR AUDIT ACTIVITIES</p>
-      <table id="ralloc-units">
+      <p id="table2-title" v-if="isAllocationTableShow">MANHOUR ALLOCATION FOR AUDIT ACTIVITIES</p>
+      <table id="ralloc-units" v-if="isAllocationTableShow">
         <thead>
           <tr>
             <th></th>
-            <th>Auditable Units</th>  
+            <th>Sector</th>
+            <th>Auditable Units</th> 
+            <th>Risk Rating</th> 
+            <th>Audit Status</th>
             <th>Equal Manhours Allocation</th> 
+            <th>Manhours Adjustment</th>
             <th>Adjusted Manhours Allocation</th>
+            <th>Override Justification</th>
           </tr>
         </thead>
-          <tr>
-            <td id="tab-lvl1" colspan="4">Operations & Compliance Team: </td>
+
+        <!-- -------------------------------------------------------------Operations Team----------------------------------------------------- -->
+          <tr v-show="id==1">
+            <td id="tab-lvl1" colspan="9">Operations & Compliance Team: </td>
           </tr>
-          <tr>
-            <td><input type="checkbox" name="unitCheckbox"></td>
-            <td id="tab-lvl2">Sales</td>
-            <td><span>300</span></td>
-            <td>400</td>
+          <tr v-show="id==1" v-for="(item, index) in auditeesOperations" :key="index">
+            <td><input type="checkbox" name="unitCheckbox" :checked="checkedIndex === index && isChecked" @change="updateCheckbox(index), getSelectedUnits(item), inputBoxDisable(checkedIndex,index)" :disabled=isInputDisabled(1) v-model="isChecked[index]"></td>
+            <td id="tab-lvl2"><span>{{ item.auditee.sector }}</span></td>
+            <td id="tab-lvl2"><span>{{ item.auditee.unit }}</span></td>
+            <td><span>{{ item.benchmarkResult }}</span></td>
+            <td>
+              <select v-model="item.auditStatus" :disabled="isInputDisabled(1) || !(checkedIndex===index && isChecked[index]===true)">
+                <option v-for="status in auditStatusIndicator" :key="status" :value="status">{{ status }}</option>
+              </select>
+            </td>
+            <!-- <td><span>{{ equalAllocationOperations[index] }}</span></td> -->
+            <td><span>{{ item.equalAllocation }}</span></td>
+            <!-- <td><input type="number" :disabled="isInputDisabled(1) || !(checkedIndex===index && isChecked[index]===true)" v-model="adjustedManhoursAllocationOperations[index]"></td> -->
+            <td><input type="number" :disabled="isInputDisabled(1) || !(checkedIndex===index && isChecked[index]===true)" v-model="item.manhourAdjustment"></td>
+            <td><span>{{ finalAdjustedMHOperations[index] }}</span></td>
+            <td><input type="text" :disabled="isInputDisabled(1) || !(checkedIndex===index && isChecked[index]===true)" v-model="item.overrideReason"></td>
           </tr>
-          <tr>
-            <td><input type="checkbox" name="unitCheckbox"></td>
-            <td id="tab-lvl2">Wealth Management</td>
-            <td><span>400</span></td>
-            <td><span>500</span></td>
+          <tr v-show="id==1" >
+            <td colspan="9">
+            <div id="buttonAdjustMHCont">
+              <button id="buttonAdjustMH" @click="clearInputs()">Clear</button>
+              <button id="buttonAdjustMH" @click="saveResourceUpdates()">Save Adjusted Manhours</button>
+              
+            </div>   
+          </td>
+          </tr>        
+         
+         <!-- ---------------------------------------------------Lending Team------------------------------------------------------- -->
+          <tr v-show="id==2">
+            <td id="tab-lvl1" colspan="9">Lending Team: </td>
+          </tr> 
+          <tr v-show="id==2" v-for="(item, index) in auditeesCredit" :key="index">
+            <td><input type="checkbox" name="unitCheckbox" :checked="checkedIndex === index && isChecked" @change="updateCheckbox(index), getSelectedUnits(item), inputBoxDisable(checkedIndex,index)" :disabled=isInputDisabled(2) v-model="isChecked[index]"></td>
+            <td id="tab-lvl2"><span>{{ item.auditee.sector }}</span></td>
+            <td id="tab-lvl2"><span>{{ item.auditee.unit }}</span></td>
+            <td><span>{{ item.benchmarkResult }}</span></td>
+            <td>
+              <select v-model="item.auditStatus" :disabled="isInputDisabled(2) || !(checkedIndex===index && isChecked[index]===true)">
+                <option v-for="status in auditStatusIndicator" :key="status" :value="status">{{ status }}</option>
+              </select>
+            </td>
+            <td><span>{{ item.equalAllocation }}</span></td>
+            <td><input type="number" :disabled="isInputDisabled(2) || !(checkedIndex===index && isChecked[index]===true)" v-model="item.manhourAdjustment"></td>
+            <td><span>{{ finalAdjustedMHLending[index] }}</span></td>
+            <td><input type="text" :disabled="isInputDisabled(2) || !(checkedIndex===index && isChecked[index]===true)" v-model="item.overrideReason"></td>
+          </tr>  
+          <tr v-show="id==2">
+            <td colspan="9">
+            <div id="buttonAdjustMHCont">
+              <button id="buttonAdjustMH" @click=clearInputs()>Clear</button>
+              <button id="buttonAdjustMH" @click="saveResourceUpdates()">Save Adjusted Manhours</button>
+              
+            </div>   
+          </td>
+          </tr>     
+            <!-- ---------------------------------------------Technology Team----------------------------------------------- -->
+            <tr v-show="id==3">
+            <td id="tab-lvl1" colspan="9">Technology Team: </td>
+          </tr> 
+          <tr v-show="id==3" v-for="(item, index) in auditeesTech" :key="index" >
+            <td><input type="checkbox" name="unitCheckbox" :checked="checkedIndex === index && isChecked" @change="updateCheckbox(index), getSelectedUnits(item), inputBoxDisable(checkedIndex,index)" :disabled=isInputDisabled(3) v-model="isChecked[index]"></td>
+            <td id="tab-lvl2"> <span>{{ item.auditee.sector }}</span></td>
+            <td id="tab-lvl2"><span>{{ item.auditee.unit }}</span></td>
+            <td><span>{{ item.benchmarkResult }}</span></td>
+            <td>
+              <select v-model="item.auditStatus" :disabled="isInputDisabled(3) || !(checkedIndex===index && isChecked[index]===true)">
+                <option v-for="status in auditStatusIndicator" :key="status" :value="status">{{ status }}</option>
+              </select>
+            </td>
+            <td><span>{{ item.equalAllocation }}</span></td>
+            <td><input type="number" :disabled="isInputDisabled(3) || !(checkedIndex===index && isChecked[index]===true)" v-model="item.manhourAdjustment"></td>
+            <td><span>{{ finalAdjustedMHTech[index] }}</span></td>
+            <td><input type="text" :disabled="isInputDisabled(3) || !(checkedIndex===index && isChecked[index]===true)" v-model="item.overrideReason"></td>
           </tr>   
-          <tr>
-            <td id="tab-lvl1" colspan="3">Technology Team: </td>
-          </tr> 
-          <tr>
-            <td><input type="checkbox" name="unitCheckbox"></td>
-            <td id="tab-lvl2">Unit 1</td>
-            <td><span>300</span></td>
-            <td>400</td>
-          </tr>  
-          <tr>
-            <td><input type="checkbox" name="unitCheckbox"></td>
-            <td id="tab-lvl2">Unit 2</td>
-            <td><span>400</span></td>
-            <td><span>500</span></td>
+          <tr v-show="id==3">
+            <td colspan="9">
+            <div id="buttonAdjustMHCont">
+              <button id="buttonAdjustMH" @click=clearInputs()>Clear</button>
+              <button id="buttonAdjustMH" @click="saveResourceUpdates()">Save Adjusted Manhours</button>         
+            </div>   
+          </td>
           </tr>
-          <tr>
-            <td id="tab-lvl1" colspan="3">Lending Team: </td>
+             
+          <!-- ---------------------------------------------------------------Treasury Team -------------------------------------------------------------- -->
+          <tr v-show="id==4">
+            <td id="tab-lvl1" colspan="9">Treasury Team: </td>
           </tr> 
-          <tr>
-            <td><input type="checkbox" name="unitCheckbox"></td>
-            <td id="tab-lvl2">Unit 1</td>
-            <td><span>300</span></td>
-            <td>400</td>
-          </tr>  
-          <tr>
-            <td><input type="checkbox" name="unitCheckbox"></td>
-            <td id="tab-lvl2">Unit 2</td>
-            <td><span>400</span></td>
-            <td><span>500</span></td>
-          </tr>
-          <tr>
-            <td id="tab-lvl1" colspan="3">Treasury Team: </td>
+          <tr v-show="id==4" v-for="(item, index) in auditeesTreasury" :key="index">
+            <td><input type="checkbox" name="unitCheckbox" :checked="checkedIndex === index && isChecked" @change="updateCheckbox(index), getSelectedUnits(item), inputBoxDisable(checkedIndex,index)" :disabled=isInputDisabled(4) v-model="isChecked[index]"></td>
+            <td id="tab-lvl2"><span>{{ item.auditee.sector }}</span></td>
+            <td id="tab-lvl2"><span>{{ item.auditee.unit }}</span></td>
+            <td><span>{{ item.benchmarkResult }}</span></td>
+            <td>
+              <select v-model="item.auditStatus" :disabled="isInputDisabled(4) || !(checkedIndex===index && isChecked[index]===true)">
+                <option v-for="status in auditStatusIndicator" :key="status" :value="status">{{ status }}</option>
+              </select>
+            </td>
+            <td><span>{{ item.equalAllocation }}</span></td>
+            <td><input type="number" :disabled="isInputDisabled(4) || !(checkedIndex===index && isChecked[index]===true)" v-model="item.manhourAdjustment"></td>
+            <td><span>{{ finalAdjustedMHTreasury[index] }}</span></td>
+            <td><input type="text" :disabled="isInputDisabled(4) || !(checkedIndex===index && isChecked[index]===true)" v-model="item.overrideReason"></td>
           </tr> 
-          <tr>
-            <td><input type="checkbox" name="unitCheckbox"></td>
-            <td id="tab-lvl2">Unit 1</td>
-            <td><span>300</span></td>
-            <td>400</td>
-          </tr>  
-          <tr>
-            <td><input type="checkbox" name="unitCheckbox"></td>
-            <td id="tab-lvl2">Unit 2</td>
-            <td><span>400</span></td>
-            <td><span>500</span></td>
+          <tr v-show="id==4">
+            <td colspan="9">
+            <div id="buttonAdjustMHCont">
+              <button id="buttonAdjustMH" @click=clearInputs()>Clear</button>
+              <button id="buttonAdjustMH" @click="saveResourceUpdates()">Save Adjusted Manhours</button>          
+            </div>   
+          </td>
           </tr>
+          
+
       </table>
     </div>
   </div>
@@ -220,6 +282,8 @@
 
 <script>
 import AuditorService from "@/services/AuditorService";
+import RiskScoringService from "@/services/RiskScoringService";
+import ResourceService from "@/services/ResourceService"
 export default {
   name: "ResourceAllocation",
   data(){
@@ -255,11 +319,50 @@ export default {
       contingencyBudgetConv: 0,
       data:{},
       convertedValue:0,
-      auditorDataAll:[]
-         
+      auditorDataAll:[],
+      scoredAuditeesAll:[],
+      auditeesOperations:[],
+      auditeesCredit:[],
+      auditeesTech:[],
+      auditeesTreasury:[],
+      resourceAllocationsAll:[],
+      checkedIndex:null,
+      selectedUnit:{},
+      countUnitOperations:0,
+      countUnitCredit:0,
+      countUnitTech:0,
+      countUnitTreasury:0,
+      allocatedManhoursOperations:0,
+      allocatedManhoursCredit:0,
+      allocatedManhoursTech:0,
+      allocatedManhoursTreasury:0,
+      // isChecked:false,
+      adjustedManhoursAllocationOperations:[],
+      adjustedManhoursAllocationLending:[],
+      adjustedManhoursAllocationTech:[],
+      adjustedManhoursAllocationTreasury:[],
+      finalAdjustedMHOperations:[],
+      finalAdjustedMHLending:[],
+      finalAdjustedMHTech:[],
+      finalAdjustedMHTreasury:[],
+      adjustedManhoursRunTotalOps:0,
+      isAllocationTableShow:false,
+      isDisabled:false,
+      isDisabledInput: true,
+      isChecked:Array(length).fill(false),
+      forAuditStatusHolder:[],
+      auditStatusIndicator:["For Audit","Not For Audit"],
+      equalAllocationOperations:[],
+      equalAllocationLending:[],
+      equalAllocationTech:[],
+      equalAllocationTreasury:[]
+
     }
   },
   methods:{
+
+    // ---------------------------------resource allocation methods------------------------------------------------
+
     async retrieveDataFromDatabase(){
         try{
           const response = await AuditorService.retrieveAuditorData();
@@ -289,6 +392,27 @@ export default {
 
     },
 
+    inputBoxDisable(checkedIndex,index){
+      if(checkedIndex ===index){
+        this.isDisabledInput= !this.isDisabledInput;
+      }
+    },
+    updateCheckbox(index){
+      this.checkedIndex=index;
+      // this.isChecked =true;  
+      
+      if(this.isChecked[index]===true){
+        this.showRiskScoring = true;
+        
+      }
+      // console.log(this.checkedIndex+"  "+index);
+    },
+
+    getSelectedUnits(item){
+      this.selectedUnit = item;
+      console.log("selected unit: "+ this.selectedUnit)
+      // this.unit = this.selectedUnit.auditee.unit;
+    },
 
     async postDataResource(){
       try{
@@ -315,11 +439,12 @@ export default {
               excessShort:this.excessShort[i]
             }
 
-            const response = await AuditorService.postResource(this.id, this.data);
+            const response = await AuditorService.putResource(this.id, this.data);
             console.log(response.data);
             this.btnConditionAlloc=false;
             this.btnConditionEdit=true;
-            this.isInputDisabled(-1)
+            this.isDisabled=true;
+            // this.isInputDisabled(-1)
       
 
       }catch(error){
@@ -327,10 +452,6 @@ export default {
       }
       
    },
-
-    justToCheck(){
-      console.log("Just to Check")
-    },
 
     calculateTotalWorkHours(){
 
@@ -490,6 +611,15 @@ export default {
       this.availHoursForAudit[4]=sum;
     },
 
+    calculateAllocatedMHTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.actualAllocManhours[i]===0 || this.actualAllocManhours[i]===''|| isNaN(this.actualAllocManhours[i]) ) {this.convertedValue =0}else{this.convertedValue=this.actualAllocManhours[i]}
+          sum+=this.convertedValue;
+        }      
+        this.actualAllocManhours[4]=sum;
+    },
+
     calculateExcessShortTotal(){
       let sum=0;      
         for(let i=0; i<4;i++){
@@ -498,6 +628,435 @@ export default {
         }      
       this.excessShort[4]=sum;
     },
+
+    editResource(){
+      this.btnConditionEdit=false;
+      this.btnConditionAlloc=true;
+      this.isDisabled=false;
+    },
+
+    showAllocationTable(){
+      this.isAllocationTableShow=true;
+      this.populateResourceTable();
+      
+      
+    },
+
+    // -------------------------------------------------Manual Adjustment Methods -----------------------------------------------------------------------
+
+    async retrieveAllAuditeeSummaries(){         
+      try{
+        const response = await RiskScoringService.getSummaryScores();
+        this.scoredAuditeesAll = response.data;
+        
+        for(let i =0; i<this.scoredAuditeesAll.length;i++){
+          console.log(this.scoredAuditeesAll[i]);
+        }
+      
+      }catch(error){
+        console.log(error);
+      }
+
+    },
+
+    async createResourceAllocations(){
+      try{
+        // let containerScoreAuditees = this.scoredAuditeesAll;
+
+        const response = await RiskScoringService.getSummaryScores();
+        this.scoredAuditeesAll = response.data;
+        let auditStatus = "";
+
+        for(let i =0; i<this.scoredAuditeesAll.length;i++){
+        if(this.scoredAuditeesAll[i].benchmarkResults==="Medium Risk" || this.scoredAuditeesAll[i].benchmarkResults==="High Risk"){
+          auditStatus = "For Audit"
+        }else{
+          auditStatus = "Not For Audit"
+        }        
+          let data = {
+            auditee: this.scoredAuditeesAll[i].auditee,
+            benchmarkResult: this.scoredAuditeesAll[i].benchmarkResults,
+            auditStatus:auditStatus      
+          }
+          const response2 = await ResourceService.createResource(data);
+          console.log(response2)
+          console.log("Not bypassed2")
+        }
+        
+      }catch(error){
+        console.log(error)
+      }
+    },
+
+    async populateResourceTable(){
+      try{
+        const response = await ResourceService.retrieveResource();
+        this.resourceAllocationsAll = response.data;
+        console.log(this.resourceAllocationsAll);
+        this.auditeesOperations=[];
+        this.auditeesCredit=[];
+        this.auditeesTech=[];
+        this.auditeesTreasury=[];
+
+
+        this.countUnitOperations=0;
+        this.countUnitCredit=0;
+        this.countUnitTech=0;
+        this.countUnitTreasury=0;
+
+        //group the data per team
+        for(let i=0; i<this.resourceAllocationsAll.length;i++){
+          if(this.resourceAllocationsAll[i].auditee.auditor.teamName==="Operations"){
+            this.auditeesOperations.push(this.resourceAllocationsAll[i]);
+            if(this.resourceAllocationsAll[i].benchmarkResult==="Medium Risk"||this.resourceAllocationsAll[i].benchmarkResult==="High Risk"){
+              this.countUnitOperations++;
+            }         
+          }else if(this.resourceAllocationsAll[i].auditee.auditor.teamName==="Credit"){
+            this.auditeesCredit.push(this.resourceAllocationsAll[i]);
+            if(this.resourceAllocationsAll[i].benchmarkResult==="Medium Risk"||this.resourceAllocationsAll[i].benchmarkResult==="High Risk"){
+              this.countUnitCredit++;
+            }         
+     
+          }else if(this.resourceAllocationsAll[i].auditee.auditor.teamName==="Technology"){
+            this.auditeesTech.push(this.resourceAllocationsAll[i]);
+            if(this.resourceAllocationsAll[i].benchmarkResult==="Medium Risk"||this.resourceAllocationsAll[i].benchmarkResult==="High Risk"){
+              this.countUnitTech++;
+            }            
+            
+          }else{
+            this.auditeesTreasury.push(this.resourceAllocationsAll[i]);
+            if(this.resourceAllocationsAll[i].benchmarkResult==="Medium Risk"||this.resourceAllocationsAll[i].benchmarkResult==="High Risk"){
+              this.countUnitTreasury++;
+            }  
+          
+          }
+        }
+
+        console.log("Operations Team: "+this.auditeesOperations);
+        console.log("Credit Team: "+this.auditeesCredit);
+        console.log("Technology Team: "+this.auditeesTech);
+        console.log("Treasury: "+this.auditeesTreasury);
+
+        this.calculateAllocManhours();
+        this.calculateAdjustedManhoursAllocation();
+        this.calculateTotalAdjustmentOperations();
+
+       
+      }catch(error){
+        console.log(error);
+      }
+    },
+    
+    calculateAllocManhours(){
+      this.allocatedManhoursOperations =Number((this.availHoursForAudit[0] / this.countUnitOperations).toFixed(2));
+      for(let i=0; i<this.auditeesOperations.length;i++){
+        if(this.auditeesOperations[i].benchmarkResult==="Medium Risk"||this.auditeesOperations[i].benchmarkResult==="High Risk"){
+          // this.equalAllocationOperations[i]=this.allocatedManhoursOperations;
+          this.auditeesOperations[i].equalAllocation=this.allocatedManhoursOperations;
+
+        }
+      }
+
+      this.allocatedManhoursCredit=Number((this.availHoursForAudit[1]/this.countUnitCredit).toFixed(2));
+      for(let i=0; i<this.auditeesCredit.length;i++){
+        if(this.auditeesCredit[i].benchmarkResult==="Medium Risk"||this.auditeesCredit[i].benchmarkResult==="High Risk"){
+          this.auditeesCredit[i].equalAllocation=this.allocatedManhoursCredit;
+          // this.equalAllocationLending[i]=this.allocatedManhoursCredit;
+        }
+      }
+
+      this.allocatedManhoursTech=Number((this.availHoursForAudit[2]/this.countUnitTech).toFixed(2));
+      for(let i=0; i<this.auditeesTech.length;i++){
+        if(this.auditeesTech[i].benchmarkResult==="Medium Risk"||this.auditeesTech[i].benchmarkResult==="High Risk"){
+          this.auditeesTech[i].equalAllocation=this.allocatedManhoursTech;
+          // this.equalAllocationTech[i]=this.allocatedManhoursTech;
+        }
+      }
+
+      this.allocatedManhoursTreasury=Number((this.availHoursForAudit[3]/this.countUnitTreasury).toFixed(2));
+      for(let i=0; i<this.auditeesTreasury.length;i++){
+        if(this.auditeesTreasury[i].benchmarkResult==="Medium Risk"||this.auditeesTreasury[i].benchmarkResult==="High Risk"){
+          this.auditeesTreasury[i].equalAllocation=this.allocatedManhoursTreasury;
+          // this.equalAllocationTreasury[i]=this.allocatedManhoursTreasury;
+        }
+      }
+    },
+
+    calculateTotalAdjustmentOperations(){
+      let sum=0;
+      let convertedValueGeneric=0;
+      this.convertedValue=0;
+      for(let i=0;i<this.finalAdjustedMHOperations.length;i++){
+        if(this.finalAdjustedMHOperations[i]===0 || this.finalAdjustedMHOperations[i]===''|| isNaN(this.finalAdjustedMHOperations[i]) ) {this.convertedValue =0}else{this.convertedValue=this.finalAdjustedMHOperations[i]}
+        sum+=this.convertedValue;
+        
+      }
+      this.actualAllocManhours[0]=Number((sum).toFixed(0)); 
+      
+      // for(let i=0;i<this.auditeesOperations.length;i++){
+      //   if(this.auditeesOperations[i].adjustedManhours===0 || this.auditeesOperations[i].adjustedManhours===''|| isNaN(this.auditeesOperations[i].adjustedManhours) ) {this.convertedValue =0}else{this.convertedValue=this.auditeesOperations[i].adjustedManhours}
+      //   sum+=this.convertedValue;
+        
+      // }
+      // this.actualAllocManhours[0]=Number((sum).toFixed(0)); 
+  
+
+      sum=0;
+      for(let i=0;i<this.finalAdjustedMHLending.length;i++){
+        if(this.finalAdjustedMHLending[i]===0 || this.finalAdjustedMHLending[i]===''|| isNaN(this.finalAdjustedMHLending[i]) ) {convertedValueGeneric =0}else{convertedValueGeneric=this.finalAdjustedMHLending[i]}
+        sum+=convertedValueGeneric;
+        
+      }
+      this.actualAllocManhours[1]=Number((sum).toFixed(0)); 
+      
+
+      sum=0;
+      convertedValueGeneric=0;
+      for(let i=0;i<this.finalAdjustedMHTech.length;i++){
+        if(this.finalAdjustedMHTech[i]===0 || this.finalAdjustedMHTech[i]===''|| isNaN(this.finalAdjustedMHTech[i]) ) {convertedValueGeneric =0}else{convertedValueGeneric=this.finalAdjustedMHTech[i]}
+        sum+=convertedValueGeneric;
+        
+      }
+      this.actualAllocManhours[2]=Number((sum).toFixed(0)); 
+      
+
+
+      sum=0;
+      convertedValueGeneric=0;
+      for(let i=0;i<this.finalAdjustedMHTreasury.length;i++){
+        if(this.finalAdjustedMHTreasury[i]===0 || this.finalAdjustedMHTreasury[i]===''|| isNaN(this.finalAdjustedMHTreasury[i]) ) {convertedValueGeneric =0}else{convertedValueGeneric=this.finalAdjustedMHTreasury[i]}
+        sum+=convertedValueGeneric;
+        
+      }
+      this.actualAllocManhours[3]=Number((sum).toFixed(0)); 
+     
+
+
+      
+      // for(let i=0;i<this.adjustedManhoursAllocationOperations.length;i++){
+      //   if(this.adjustedManhoursAllocationOperations[i]===0 || this.adjustedManhoursAllocationOperations[i]===''|| isNaN(this.adjustedManhoursAllocationOperations[i]) ) {this.convertedValue =0}else{this.convertedValue=this.adjustedManhoursAllocationOperations[i]}
+      //   sum+=this.convertedValue;
+      // }
+      // this.actualAllocManhours[0]=sum;    
+    },
+
+    calculateAdjustedManhoursAllocation(){
+      let convertedValue2 = 0;
+      for(let i=0;i<this.auditeesOperations.length;i++){
+        
+        if(this.auditeesOperations[i].equalAllocation===0 || this.auditeesOperations[i].equalAllocation===''|| isNaN(this.auditeesOperations[i].equalAllocation) ) {this.convertedValue =0}else{this.convertedValue=this.auditeesOperations[i].equalAllocation}
+        if(this.auditeesOperations[i].manhourAdjustment===0 || this.auditeesOperations[i].manhourAdjustment===''|| isNaN(this.auditeesOperations[i].manhourAdjustment) ) {convertedValue2 =0}else{convertedValue2=this.auditeesOperations[i].manhourAdjustment}
+      
+        this.finalAdjustedMHOperations[i]=Number((this.convertedValue+convertedValue2).toFixed(2));
+        // this.auditeesOperations[i].adjustedManhours=Number((this.convertedValue+convertedValue2).toFixed(2));
+
+        
+      }
+
+      // for(let i=0;i<this.auditeesOperations.length;i++){
+        
+      //   if(this.equalAllocationOperations[i]===0 || this.equalAllocationOperations[i]===''|| isNaN(this.equalAllocationOperations[i]) ) {this.convertedValue =0}else{this.convertedValue=this.equalAllocationOperations[i]}
+      //   if(this.adjustedManhoursAllocationOperations[i]===0 || this.adjustedManhoursAllocationOperations[i]===''|| isNaN(this.adjustedManhoursAllocationOperations[i]) ) {convertedValue2 =0}else{convertedValue2=this.adjustedManhoursAllocationOperations[i]}
+      
+      //   this.finalAdjustedMHOperations[i]=Number((this.convertedValue+convertedValue2).toFixed(2));
+        
+      // }
+      let convertedValueGeneric1=0;
+      let convertedValueGeneric2=0;
+      // for(let i=0;i<this.auditeesCredit.length;i++){
+        
+      //   if(this.equalAllocationLending[i]===0 || this.equalAllocationLending[i]===''|| isNaN(this.equalAllocationLending[i]) ) {convertedValueGeneric1 =0}else{convertedValueGeneric1=this.equalAllocationLending[i]}
+      //   if(this.adjustedManhoursAllocationLending[i]===0 || this.adjustedManhoursAllocationLending[i]===''|| isNaN(this.adjustedManhoursAllocationLending[i]) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.adjustedManhoursAllocationLending[i]}
+      
+      //   this.finalAdjustedMHLending[i]=Number((convertedValueGeneric1+convertedValueGeneric2).toFixed(2));     
+      // }
+
+      for(let i=0;i<this.auditeesCredit.length;i++){
+        
+        if(this.auditeesCredit[i].equalAllocation===0 || this.auditeesCredit[i].equalAllocation===''|| isNaN(this.auditeesCredit[i].equalAllocation) ) {this.convertedValue =0}else{this.convertedValue=this.auditeesCredit[i].equalAllocation}
+        if(this.auditeesCredit[i].manhourAdjustment===0 || this.auditeesCredit[i].manhourAdjustment===''|| isNaN(this.auditeesCredit[i].manhourAdjustment) ) {convertedValue2 =0}else{convertedValue2=this.auditeesCredit[i].manhourAdjustment}
+      
+        this.finalAdjustedMHLending[i]=Number((this.convertedValue+convertedValue2).toFixed(2));    
+      
+      }
+
+      convertedValueGeneric1=0;
+      convertedValueGeneric2=0;
+      for(let i=0;i<this.auditeesTech.length;i++){
+        
+        // if(this.equalAllocationTech[i]===0 || this.equalAllocationTech[i]===''|| isNaN(this.equalAllocationTech[i]) ) {convertedValueGeneric1 =0}else{convertedValueGeneric1=this.equalAllocationTech[i]}
+        // if(this.adjustedManhoursAllocationTech[i]===0 || this.adjustedManhoursAllocationTech[i]===''|| isNaN(this.adjustedManhoursAllocationTech[i]) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.adjustedManhoursAllocationTech[i]}
+      
+        if(this.auditeesTech[i].equalAllocation===0 || this.auditeesTech[i].equalAllocation===''|| isNaN(this.auditeesTech[i].equalAllocation) ) {convertedValueGeneric1 =0}else{convertedValueGeneric1=this.auditeesTech[i].equalAllocation}
+        if(this.auditeesTech[i].manhourAdjustment===0 || this.auditeesTech[i].manhourAdjustment===''|| isNaN(this.auditeesTech[i].manhourAdjustment) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.auditeesTech[i].manhourAdjustment}
+      
+        this.finalAdjustedMHTech[i]=Number((convertedValueGeneric1+convertedValueGeneric2).toFixed(2));     
+      }
+
+      convertedValueGeneric1=0;
+      convertedValueGeneric2=0;
+      for(let i=0;i<this.auditeesTreasury.length;i++){
+        
+        // if(this.equalAllocationTreasury[i]===0 || this.equalAllocationTreasury[i]===''|| isNaN(this.equalAllocationTreasury[i]) ) {convertedValueGeneric1 =0}else{convertedValueGeneric1=this.equalAllocationTreasury[i]}
+        // if(this.adjustedManhoursAllocationTreasury[i]===0 || this.adjustedManhoursAllocationTreasury[i]===''|| isNaN(this.adjustedManhoursAllocationTreasury[i]) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.adjustedManhoursAllocationTreasury[i]}
+      
+        if(this.auditeesTreasury[i].equalAllocation===0 || this.auditeesTreasury[i].equalAllocation===''|| isNaN(this.auditeesTreasury[i].equalAllocation) ) {convertedValueGeneric1 =0}else{convertedValueGeneric1=this.auditeesTreasury[i].equalAllocation}
+        if(this.auditeesTreasury[i].manhourAdjustment===0 || this.auditeesTreasury[i].manhourAdjustment===''|| isNaN(this.auditeesTreasury[i].manhourAdjustment) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.auditeesTreasury[i].manhourAdjustment}
+      
+        this.finalAdjustedMHTreasury[i]=Number((convertedValueGeneric1+convertedValueGeneric2).toFixed(2));     
+      }
+
+      
+    },
+    async saveResourceUpdates(){
+      try {
+        if(this.id==1){
+          for(let i=0;i<this.auditeesOperations.length;i++){
+          let data={
+            equalAllocation:this.auditeesOperations[i].equalAllocation,
+            // equalAllocation: this.equalAllocationOperations[i],
+            adjustedManhours:this.auditeesOperations[i].adjustedManhours,
+            // adjustedManhours: this.finalAdjustedMHOperations[i],
+            auditStatus: this.auditeesOperations[i].auditStatus,
+            // manhourAdjustment: this.adjustedManhoursAllocationOperations[i]
+            manhourAdjustment: this.auditeesOperations[i].manhourAdjustment,
+            overrideReason: this.auditeesOperations[i].overrideReason
+          }
+          const response = await ResourceService.inputManhoursAndReason(this.auditeesOperations[i].id, data);
+          console.log(response)  
+
+          let data2={
+          actualAllocatedManhours:this.actualAllocManhours[0],
+          excessShort:this.excessShort[0]
+        }
+        const response2 = await AuditorService.putAdjustedManhours(this.id,data2)
+        console.log(response2) 
+        } 
+        }
+
+        if(this.id==2){
+          for(let i=0;i<this.auditeesCredit.length;i++){
+        let data={
+           equalAllocation:this.auditeesCredit[i].equalAllocation,
+            // equalAllocation: this.equalAllocationOperations[i],
+            adjustedManhours:this.auditeesCredit[i].adjustedManhours,
+            // adjustedManhours: this.finalAdjustedMHOperations[i],
+            auditStatus: this.auditeesCredit[i].auditStatus,
+            // manhourAdjustment: this.adjustedManhoursAllocationOperations[i]
+            manhourAdjustment: this.auditeesCredit[i].manhourAdjustment,
+            overrideReason: this.auditeesCredit[i].overrideReason
+
+          
+          // equalAllocation: this.equalAllocationLending[i],
+          // adjustedManhours: this.finalAdjustedMHLending[i],
+          // auditStatus: this.auditeesCredit[i].auditStatus,
+          // manhourAdjustment: this.adjustedManhoursAllocationLending[i]
+        }
+        const response= await  ResourceService.inputManhoursAndReason(this.auditeesCredit[i].id,data)
+        console.log(response)   
+        
+       }
+       let data2={
+          actualAllocatedManhours:this.actualAllocManhours[1],
+          excessShort:this.excessShort[1]
+        }
+        const response2 = await AuditorService.putAdjustedManhours(this.id,data2)
+        console.log(response2) 
+        }
+
+        if(this.id == 3){
+          for(let i=0;i<this.auditeesTech.length;i++){
+          let data={
+          // equalAllocation: this.equalAllocationTech[i],
+          // adjustedManhours: this.finalAdjustedMHTech[i],
+          // auditStatus: this.auditeesTech[i].auditStatus,
+          // manhourAdjustment: this.adjustedManhoursAllocationTech[i]
+
+            equalAllocation:this.auditeesTech[i].equalAllocation,
+            // equalAllocation: this.equalAllocationOperations[i],
+            adjustedManhours:this.auditeesTech[i].adjustedManhours,
+            // adjustedManhours: this.finalAdjustedMHOperations[i],
+            auditStatus: this.auditeesTech[i].auditStatus,
+            // manhourAdjustment: this.adjustedManhoursAllocationOperations[i]
+            manhourAdjustment: this.auditeesTech[i].manhourAdjustment,
+            overrideReason: this.auditeesTech[i].overrideReason
+          }
+          const response= await  ResourceService.inputManhoursAndReason(this.auditeesTech[i].id,data)
+            console.log(response)       
+         }
+  
+         let data2={
+            actualAllocatedManhours:this.actualAllocManhours[2],
+            excessShort:this.excessShort[2]
+          }
+          const response2 = await AuditorService.putAdjustedManhours(this.id,data2)
+          console.log(response2)
+       }
+         if(this.id==4){
+          for(let i=0;i<this.auditeesTreasury.length;i++){
+          let data={
+          // equalAllocation: this.equalAllocationTreasury[i],
+          // adjustedManhours: this.finalAdjustedMHTreasury[i],
+          // auditStatus: this.auditeesTreasury[i].auditStatus,
+          // manhourAdjustment: this.adjustedManhoursAllocationTreasury[i]
+
+          equalAllocation:this.auditeesTreasury[i].equalAllocation,
+            // equalAllocation: this.equalAllocationOperations[i],
+            adjustedManhours:this.auditeesTreasury[i].adjustedManhours,
+            // adjustedManhours: this.finalAdjustedMHOperations[i],
+            auditStatus: this.auditeesTreasury[i].auditStatus,
+            // manhourAdjustment: this.adjustedManhoursAllocationOperations[i]
+            manhourAdjustment: this.auditeesTreasury[i].manhourAdjustment,
+            overrideReason: this.auditeesTreasury[i].overrideReason
+        }
+        const response = await ResourceService.inputManhoursAndReason(this.auditeesTreasury[i].id, data);
+        console.log(response)          
+       } 
+
+         let data2={
+          actualAllocatedManhours:this.actualAllocManhours[3],
+          excessShort:this.excessShort[3]
+        }
+        const response2 = await AuditorService.putAdjustedManhours(this.id,data2)
+        console.log(response2)
+         }
+         window.alert("You have successfully saved any changes made.");
+
+      }catch(error){
+        console.log(error)
+      }
+      
+    },
+    clearInputs(){
+      if(this.id==1){
+        for(let i=0;i<this.auditeesOperations.length;i++){
+          this.auditeesOperations[i].manhourAdjustment=0;
+          this.auditeesOperations[i].overrideReason='';
+        }
+      }
+
+      if(this.id==2){
+        for(let i=0;i<this.auditeesCredit.length;i++){
+          this.auditeesCredit[i].manhourAdjustment=0;
+          this.auditeesCredit[i].overrideReason='';
+        }
+      }
+
+      if(this.id==3){
+        for(let i=0;i<this.auditeesTech.length;i++){
+          this.auditeesTech[i].manhourAdjustment=0;
+          this.auditeesTech[i].overrideReason='';
+        }
+      }
+
+      if(this.id==4){
+        for(let i=0;i<this.auditeesTreasury.length;i++){
+          this.auditeesTreasury[i].manhourAdjustment=0;
+          this.auditeesTreasury[i].overrideReason='';
+        }
+      }
+      window.alert("Inputs will be cleared.  Click the 'Save Adjusted Manhours' to save the changes. If erroneously clicked, do not save the changes.");
+    }
 
   },
   watch: {
@@ -604,22 +1163,155 @@ export default {
     actualAllocManhours:{
       handler(){
         this.calculateExcessShort();
+        this.calculateAllocatedMHTotal();
         
       },
       deep:true
     },
     excessShort:{
       handler(){
-        this.calculateExcessShort();
+        // this.calculateExcessShort();
         this.calculateExcessShortTotal();
         
       },
       deep:true
-    }
+    },
+    // adjustedManhoursAllocationOperations:{
+    //   handler(){
+        
+    //     // this.calculateExcessShort();
+       
+    //     this.calculateAdjustedManhoursAllocation();
+        
+        
+    //   },
+    //   deep:true
+    // },
+    auditeesOperations:{
+      handler(){
+        
+        // this.calculateExcessShort();
+       
+        this.calculateAdjustedManhoursAllocation();
+        
+        
+      },
+      deep:true
+    },
+
+    auditeesCredit:{
+      handler(){
+        
+        // this.calculateExcessShort();
+       
+        this.calculateAdjustedManhoursAllocation();     
+      },
+      deep:true
+    },
+
+    // adjustedManhoursAllocationLending:{
+    //   handler(){      
+    //     // this.calculateExcessShort();
+       
+    //     this.calculateAdjustedManhoursAllocation();       
+        
+    //   },
+    //   deep:true
+    // },
+
+    auditeesTech:{
+      handler(){
+        
+        // this.calculateExcessShort();      
+        this.calculateAdjustedManhoursAllocation();      
+      },
+      deep:true
+    },
+
+    // adjustedManhoursAllocationTech:{
+    //   handler(){      
+    //     // this.calculateExcessShort();
+       
+    //     this.calculateAdjustedManhoursAllocation();       
+        
+    //   },
+    //   deep:true
+    // },
+
+    auditeesTreasury:{
+      handler(){       
+        // this.calculateExcessShort();     
+        this.calculateAdjustedManhoursAllocation();
+            
+      },
+      deep:true
+    },
+
+    // adjustedManhoursAllocationTreasury:{
+    //   handler(){      
+    //     // this.calculateExcessShort();
+       
+    //     this.calculateAdjustedManhoursAllocation();       
+        
+    //   },
+    //   deep:true
+    // },
+
+    finalAdjustedMHOperations:{
+      handler(){
+        
+        this.calculateTotalAdjustmentOperations();
+      },
+      deep:true
+    },
+
+    finalAdjustedMHLending:{
+      handler(){
+        
+        this.calculateTotalAdjustmentOperations();
+      },
+      deep:true
+    },
+
+    finalAdjustedMHTech:{
+      handler(){
+        
+        this.calculateTotalAdjustmentOperations();
+      },
+      deep:true
+    },
+
+    finalAdjustedMHTreasury:{
+      handler(){
+        
+        this.calculateTotalAdjustmentOperations();
+      },
+      deep:true
+    },
+    
 
   },
+  
+  created(){
+    this.createResourceAllocations();
+    
+    
+
+  },
+  
+  
   mounted(){
+    try {
     this.retrieveDataFromDatabase();
+    this.createResourceAllocations();
+    // this.retrieveAllAuditeeSummaries();
+    // this.createResourceAllocations();
+    // this.populateResourceTable();
+    this.calculateAdjustedManhoursAllocation();
+  } catch (error) {
+    console.error('Error during component mount:', error);
+  }
+    
   }
     
 }

@@ -128,11 +128,8 @@ export default {
     
     updateCheckbox(index){
       this.checkedIndex=index;
-      this.isChecked[index] =true;
-      
-      console.log(this.checkedIndex+"  "+index);
-
-
+      // this.isChecked[index] =true;    
+      // console.log(this.checkedIndex+"  "+index);
     },
     getSelectedUnits(selectedUnit){
       this.selectedUnit = selectedUnit;

@@ -465,6 +465,22 @@ body {
     text-align: center;
    }
 
+   #buttonAdjustMHCont{
+    display:flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: right;
+    width: 97%;
+    padding: 0px 20px 0px 0px
+   }
+
+   #buttonAdjustMH{
+    padding: 10px;
+    border-radius: 10px;
+   }
+
+
+
 
   
 

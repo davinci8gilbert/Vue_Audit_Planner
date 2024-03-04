@@ -1,8 +1,12 @@
 import http from "../http-common.js";
 
 class AuditorService {
-   postResource(id,data){
+    putResource(id,data){
         return http.put(`/auditors/${id}`,data)
+    }
+
+    putAdjustedManhours(id,data){
+        return http.put(`/auditorsadjustedmanhours/${id}`,data)
     }
 
     retrieveAuditorData(){
