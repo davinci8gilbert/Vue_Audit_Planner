@@ -173,9 +173,7 @@
                 <option v-for="status in auditStatusIndicator" :key="status" :value="status">{{ status }}</option>
               </select>
             </td>
-            <!-- <td><span>{{ equalAllocationOperations[index] }}</span></td> -->
             <td><span>{{ item.equalAllocation }}</span></td>
-            <!-- <td><input type="number" :disabled="isInputDisabled(1) || !(checkedIndex===index && isChecked[index]===true)" v-model="adjustedManhoursAllocationOperations[index]"></td> -->
             <td><input type="number" :disabled="isInputDisabled(1) || !(checkedIndex===index && isChecked[index]===true)" v-model="item.manhourAdjustment"></td>
             <td><span>{{ finalAdjustedMHOperations[index] }}</span></td>
             <td><input type="text" :disabled="isInputDisabled(1) || !(checkedIndex===index && isChecked[index]===true)" v-model="item.overrideReason"></td>
@@ -184,8 +182,7 @@
             <td colspan="9">
             <div id="buttonAdjustMHCont">
               <button id="buttonAdjustMH" @click="clearInputs()">Clear</button>
-              <button id="buttonAdjustMH" @click="saveResourceUpdates()">Save Adjusted Manhours</button>
-              
+              <button id="buttonAdjustMH" @click="saveResourceUpdates()">Save Adjusted Manhours</button>              
             </div>   
           </td>
           </tr>        
@@ -336,7 +333,6 @@ export default {
       allocatedManhoursCredit:0,
       allocatedManhoursTech:0,
       allocatedManhoursTreasury:0,
-      // isChecked:false,
       adjustedManhoursAllocationOperations:[],
       adjustedManhoursAllocationLending:[],
       adjustedManhoursAllocationTech:[],
@@ -363,6 +359,7 @@ export default {
 
     // ---------------------------------resource allocation methods------------------------------------------------
 
+    //this retrieves the auditor data from the database which include those relating to resources e.g. manhours etc
     async retrieveDataFromDatabase(){
         try{
           const response = await AuditorService.retrieveAuditorData();
@@ -392,28 +389,32 @@ export default {
 
     },
 
+    // to handle display of checkbox, when it is checked and not
     inputBoxDisable(checkedIndex,index){
       if(checkedIndex ===index){
         this.isDisabledInput= !this.isDisabledInput;
       }
     },
+    // to handle the display of checkbox
     updateCheckbox(index){
       this.checkedIndex=index;
-      // this.isChecked =true;  
-      
       if(this.isChecked[index]===true){
-        this.showRiskScoring = true;
-        
+        this.showRiskScoring = true;       
       }
-      // console.log(this.checkedIndex+"  "+index);
     },
 
+    //handle the diplay of input boxes
+    isInputDisabled(id){   
+     return this.id!=id    
+   },
+
+    //to store the value of selected item for onward manipulation
     getSelectedUnits(item){
       this.selectedUnit = item;
       console.log("selected unit: "+ this.selectedUnit)
-      // this.unit = this.selectedUnit.auditee.unit;
     },
 
+    //to post the resource updates into the dataset
     async postDataResource(){
       try{
         let i = this.id-1;
@@ -453,6 +454,7 @@ export default {
       
    },
 
+   //method to calculate the total working hours per unit
     calculateTotalWorkHours(){
 
       let i = this.id-1;
@@ -502,13 +504,6 @@ export default {
       if(this.actualAllocManhours[i]===0 || this.actualAllocManhours[i]===''|| isNaN(this.actualAllocManhours[i])) {this.actualAllocManhours[i] =0}else{this.actualAllocManhours[i]}
 
       this.excessShort[i] = this.availHoursForAudit[i] - this.actualAllocManhours[i];
-    },
-
-
-    isInputDisabled(id){
-     
-      return this.id!=id
-      
     },
 
     calculateHeadcountTotal(){
@@ -629,6 +624,7 @@ export default {
       this.excessShort[4]=sum;
     },
 
+    //handle the edit resource button
     editResource(){
       this.btnConditionEdit=false;
       this.btnConditionAlloc=true;
@@ -644,6 +640,7 @@ export default {
 
     // -------------------------------------------------Manual Adjustment Methods -----------------------------------------------------------------------
 
+    //to retrieve all audit summary items for manipulation
     async retrieveAllAuditeeSummaries(){         
       try{
         const response = await RiskScoringService.getSummaryScores();
@@ -659,10 +656,10 @@ export default {
 
     },
 
+    //to create the resource allocation tables from the assessment summary table
     async createResourceAllocations(){
       try{
-        // let containerScoreAuditees = this.scoredAuditeesAll;
-
+       
         const response = await RiskScoringService.getSummaryScores();
         this.scoredAuditeesAll = response.data;
         let auditStatus = "";
@@ -697,8 +694,6 @@ export default {
         this.auditeesCredit=[];
         this.auditeesTech=[];
         this.auditeesTreasury=[];
-
-
         this.countUnitOperations=0;
         this.countUnitCredit=0;
         this.countUnitTech=0;
@@ -740,7 +735,6 @@ export default {
         this.calculateAllocManhours();
         this.calculateAdjustedManhoursAllocation();
         this.calculateTotalAdjustmentOperations();
-
        
       }catch(error){
         console.log(error);
@@ -751,7 +745,6 @@ export default {
       this.allocatedManhoursOperations =Number((this.availHoursForAudit[0] / this.countUnitOperations).toFixed(2));
       for(let i=0; i<this.auditeesOperations.length;i++){
         if(this.auditeesOperations[i].benchmarkResult==="Medium Risk"||this.auditeesOperations[i].benchmarkResult==="High Risk"){
-          // this.equalAllocationOperations[i]=this.allocatedManhoursOperations;
           this.auditeesOperations[i].equalAllocation=this.allocatedManhoursOperations;
 
         }
@@ -761,7 +754,6 @@ export default {
       for(let i=0; i<this.auditeesCredit.length;i++){
         if(this.auditeesCredit[i].benchmarkResult==="Medium Risk"||this.auditeesCredit[i].benchmarkResult==="High Risk"){
           this.auditeesCredit[i].equalAllocation=this.allocatedManhoursCredit;
-          // this.equalAllocationLending[i]=this.allocatedManhoursCredit;
         }
       }
 
@@ -769,7 +761,6 @@ export default {
       for(let i=0; i<this.auditeesTech.length;i++){
         if(this.auditeesTech[i].benchmarkResult==="Medium Risk"||this.auditeesTech[i].benchmarkResult==="High Risk"){
           this.auditeesTech[i].equalAllocation=this.allocatedManhoursTech;
-          // this.equalAllocationTech[i]=this.allocatedManhoursTech;
         }
       }
 
@@ -777,7 +768,6 @@ export default {
       for(let i=0; i<this.auditeesTreasury.length;i++){
         if(this.auditeesTreasury[i].benchmarkResult==="Medium Risk"||this.auditeesTreasury[i].benchmarkResult==="High Risk"){
           this.auditeesTreasury[i].equalAllocation=this.allocatedManhoursTreasury;
-          // this.equalAllocationTreasury[i]=this.allocatedManhoursTreasury;
         }
       }
     },
@@ -792,24 +782,13 @@ export default {
         
       }
       this.actualAllocManhours[0]=Number((sum).toFixed(0)); 
-      
-      // for(let i=0;i<this.auditeesOperations.length;i++){
-      //   if(this.auditeesOperations[i].adjustedManhours===0 || this.auditeesOperations[i].adjustedManhours===''|| isNaN(this.auditeesOperations[i].adjustedManhours) ) {this.convertedValue =0}else{this.convertedValue=this.auditeesOperations[i].adjustedManhours}
-      //   sum+=this.convertedValue;
-        
-      // }
-      // this.actualAllocManhours[0]=Number((sum).toFixed(0)); 
-  
-
       sum=0;
       for(let i=0;i<this.finalAdjustedMHLending.length;i++){
         if(this.finalAdjustedMHLending[i]===0 || this.finalAdjustedMHLending[i]===''|| isNaN(this.finalAdjustedMHLending[i]) ) {convertedValueGeneric =0}else{convertedValueGeneric=this.finalAdjustedMHLending[i]}
-        sum+=convertedValueGeneric;
-        
+        sum+=convertedValueGeneric;       
       }
       this.actualAllocManhours[1]=Number((sum).toFixed(0)); 
       
-
       sum=0;
       convertedValueGeneric=0;
       for(let i=0;i<this.finalAdjustedMHTech.length;i++){
@@ -819,8 +798,6 @@ export default {
       }
       this.actualAllocManhours[2]=Number((sum).toFixed(0)); 
       
-
-
       sum=0;
       convertedValueGeneric=0;
       for(let i=0;i<this.finalAdjustedMHTreasury.length;i++){
@@ -829,15 +806,7 @@ export default {
         
       }
       this.actualAllocManhours[3]=Number((sum).toFixed(0)); 
-     
-
-
       
-      // for(let i=0;i<this.adjustedManhoursAllocationOperations.length;i++){
-      //   if(this.adjustedManhoursAllocationOperations[i]===0 || this.adjustedManhoursAllocationOperations[i]===''|| isNaN(this.adjustedManhoursAllocationOperations[i]) ) {this.convertedValue =0}else{this.convertedValue=this.adjustedManhoursAllocationOperations[i]}
-      //   sum+=this.convertedValue;
-      // }
-      // this.actualAllocManhours[0]=sum;    
     },
 
     calculateAdjustedManhoursAllocation(){
@@ -848,29 +817,12 @@ export default {
         if(this.auditeesOperations[i].manhourAdjustment===0 || this.auditeesOperations[i].manhourAdjustment===''|| isNaN(this.auditeesOperations[i].manhourAdjustment) ) {convertedValue2 =0}else{convertedValue2=this.auditeesOperations[i].manhourAdjustment}
       
         this.finalAdjustedMHOperations[i]=Number((this.convertedValue+convertedValue2).toFixed(2));
-        // this.auditeesOperations[i].adjustedManhours=Number((this.convertedValue+convertedValue2).toFixed(2));
-
-        
+                
       }
 
-      // for(let i=0;i<this.auditeesOperations.length;i++){
-        
-      //   if(this.equalAllocationOperations[i]===0 || this.equalAllocationOperations[i]===''|| isNaN(this.equalAllocationOperations[i]) ) {this.convertedValue =0}else{this.convertedValue=this.equalAllocationOperations[i]}
-      //   if(this.adjustedManhoursAllocationOperations[i]===0 || this.adjustedManhoursAllocationOperations[i]===''|| isNaN(this.adjustedManhoursAllocationOperations[i]) ) {convertedValue2 =0}else{convertedValue2=this.adjustedManhoursAllocationOperations[i]}
-      
-      //   this.finalAdjustedMHOperations[i]=Number((this.convertedValue+convertedValue2).toFixed(2));
-        
-      // }
       let convertedValueGeneric1=0;
       let convertedValueGeneric2=0;
-      // for(let i=0;i<this.auditeesCredit.length;i++){
-        
-      //   if(this.equalAllocationLending[i]===0 || this.equalAllocationLending[i]===''|| isNaN(this.equalAllocationLending[i]) ) {convertedValueGeneric1 =0}else{convertedValueGeneric1=this.equalAllocationLending[i]}
-      //   if(this.adjustedManhoursAllocationLending[i]===0 || this.adjustedManhoursAllocationLending[i]===''|| isNaN(this.adjustedManhoursAllocationLending[i]) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.adjustedManhoursAllocationLending[i]}
       
-      //   this.finalAdjustedMHLending[i]=Number((convertedValueGeneric1+convertedValueGeneric2).toFixed(2));     
-      // }
-
       for(let i=0;i<this.auditeesCredit.length;i++){
         
         if(this.auditeesCredit[i].equalAllocation===0 || this.auditeesCredit[i].equalAllocation===''|| isNaN(this.auditeesCredit[i].equalAllocation) ) {this.convertedValue =0}else{this.convertedValue=this.auditeesCredit[i].equalAllocation}
@@ -884,9 +836,6 @@ export default {
       convertedValueGeneric2=0;
       for(let i=0;i<this.auditeesTech.length;i++){
         
-        // if(this.equalAllocationTech[i]===0 || this.equalAllocationTech[i]===''|| isNaN(this.equalAllocationTech[i]) ) {convertedValueGeneric1 =0}else{convertedValueGeneric1=this.equalAllocationTech[i]}
-        // if(this.adjustedManhoursAllocationTech[i]===0 || this.adjustedManhoursAllocationTech[i]===''|| isNaN(this.adjustedManhoursAllocationTech[i]) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.adjustedManhoursAllocationTech[i]}
-      
         if(this.auditeesTech[i].equalAllocation===0 || this.auditeesTech[i].equalAllocation===''|| isNaN(this.auditeesTech[i].equalAllocation) ) {convertedValueGeneric1 =0}else{convertedValueGeneric1=this.auditeesTech[i].equalAllocation}
         if(this.auditeesTech[i].manhourAdjustment===0 || this.auditeesTech[i].manhourAdjustment===''|| isNaN(this.auditeesTech[i].manhourAdjustment) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.auditeesTech[i].manhourAdjustment}
       
@@ -897,8 +846,7 @@ export default {
       convertedValueGeneric2=0;
       for(let i=0;i<this.auditeesTreasury.length;i++){
         
-        // if(this.equalAllocationTreasury[i]===0 || this.equalAllocationTreasury[i]===''|| isNaN(this.equalAllocationTreasury[i]) ) {convertedValueGeneric1 =0}else{convertedValueGeneric1=this.equalAllocationTreasury[i]}
-        // if(this.adjustedManhoursAllocationTreasury[i]===0 || this.adjustedManhoursAllocationTreasury[i]===''|| isNaN(this.adjustedManhoursAllocationTreasury[i]) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.adjustedManhoursAllocationTreasury[i]}
+        if(this.adjustedManhoursAllocationTreasury[i]===0 || this.adjustedManhoursAllocationTreasury[i]===''|| isNaN(this.adjustedManhoursAllocationTreasury[i]) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.adjustedManhoursAllocationTreasury[i]}
       
         if(this.auditeesTreasury[i].equalAllocation===0 || this.auditeesTreasury[i].equalAllocation===''|| isNaN(this.auditeesTreasury[i].equalAllocation) ) {convertedValueGeneric1 =0}else{convertedValueGeneric1=this.auditeesTreasury[i].equalAllocation}
         if(this.auditeesTreasury[i].manhourAdjustment===0 || this.auditeesTreasury[i].manhourAdjustment===''|| isNaN(this.auditeesTreasury[i].manhourAdjustment) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.auditeesTreasury[i].manhourAdjustment}
@@ -914,11 +862,8 @@ export default {
           for(let i=0;i<this.auditeesOperations.length;i++){
           let data={
             equalAllocation:this.auditeesOperations[i].equalAllocation,
-            // equalAllocation: this.equalAllocationOperations[i],
             adjustedManhours:this.auditeesOperations[i].adjustedManhours,
-            // adjustedManhours: this.finalAdjustedMHOperations[i],
             auditStatus: this.auditeesOperations[i].auditStatus,
-            // manhourAdjustment: this.adjustedManhoursAllocationOperations[i]
             manhourAdjustment: this.auditeesOperations[i].manhourAdjustment,
             overrideReason: this.auditeesOperations[i].overrideReason
           }
@@ -938,19 +883,10 @@ export default {
           for(let i=0;i<this.auditeesCredit.length;i++){
         let data={
            equalAllocation:this.auditeesCredit[i].equalAllocation,
-            // equalAllocation: this.equalAllocationOperations[i],
             adjustedManhours:this.auditeesCredit[i].adjustedManhours,
-            // adjustedManhours: this.finalAdjustedMHOperations[i],
             auditStatus: this.auditeesCredit[i].auditStatus,
-            // manhourAdjustment: this.adjustedManhoursAllocationOperations[i]
             manhourAdjustment: this.auditeesCredit[i].manhourAdjustment,
             overrideReason: this.auditeesCredit[i].overrideReason
-
-          
-          // equalAllocation: this.equalAllocationLending[i],
-          // adjustedManhours: this.finalAdjustedMHLending[i],
-          // auditStatus: this.auditeesCredit[i].auditStatus,
-          // manhourAdjustment: this.adjustedManhoursAllocationLending[i]
         }
         const response= await  ResourceService.inputManhoursAndReason(this.auditeesCredit[i].id,data)
         console.log(response)   
@@ -967,17 +903,10 @@ export default {
         if(this.id == 3){
           for(let i=0;i<this.auditeesTech.length;i++){
           let data={
-          // equalAllocation: this.equalAllocationTech[i],
-          // adjustedManhours: this.finalAdjustedMHTech[i],
-          // auditStatus: this.auditeesTech[i].auditStatus,
-          // manhourAdjustment: this.adjustedManhoursAllocationTech[i]
-
+          
             equalAllocation:this.auditeesTech[i].equalAllocation,
-            // equalAllocation: this.equalAllocationOperations[i],
             adjustedManhours:this.auditeesTech[i].adjustedManhours,
-            // adjustedManhours: this.finalAdjustedMHOperations[i],
             auditStatus: this.auditeesTech[i].auditStatus,
-            // manhourAdjustment: this.adjustedManhoursAllocationOperations[i]
             manhourAdjustment: this.auditeesTech[i].manhourAdjustment,
             overrideReason: this.auditeesTech[i].overrideReason
           }
@@ -995,17 +924,10 @@ export default {
          if(this.id==4){
           for(let i=0;i<this.auditeesTreasury.length;i++){
           let data={
-          // equalAllocation: this.equalAllocationTreasury[i],
-          // adjustedManhours: this.finalAdjustedMHTreasury[i],
-          // auditStatus: this.auditeesTreasury[i].auditStatus,
-          // manhourAdjustment: this.adjustedManhoursAllocationTreasury[i]
-
-          equalAllocation:this.auditeesTreasury[i].equalAllocation,
-            // equalAllocation: this.equalAllocationOperations[i],
+          
+           equalAllocation:this.auditeesTreasury[i].equalAllocation,
             adjustedManhours:this.auditeesTreasury[i].adjustedManhours,
-            // adjustedManhours: this.finalAdjustedMHOperations[i],
             auditStatus: this.auditeesTreasury[i].auditStatus,
-            // manhourAdjustment: this.adjustedManhoursAllocationOperations[i]
             manhourAdjustment: this.auditeesTreasury[i].manhourAdjustment,
             overrideReason: this.auditeesTreasury[i].overrideReason
         }
@@ -1176,67 +1098,27 @@ export default {
       },
       deep:true
     },
-    // adjustedManhoursAllocationOperations:{
-    //   handler(){
-        
-    //     // this.calculateExcessShort();
-       
-    //     this.calculateAdjustedManhoursAllocation();
-        
-        
-    //   },
-    //   deep:true
-    // },
+   
     auditeesOperations:{
       handler(){
-        
-        // this.calculateExcessShort();
-       
-        this.calculateAdjustedManhoursAllocation();
-        
-        
+        this.calculateAdjustedManhoursAllocation();     
       },
       deep:true
     },
 
     auditeesCredit:{
       handler(){
-        
-        // this.calculateExcessShort();
-       
         this.calculateAdjustedManhoursAllocation();     
       },
       deep:true
     },
 
-    // adjustedManhoursAllocationLending:{
-    //   handler(){      
-    //     // this.calculateExcessShort();
-       
-    //     this.calculateAdjustedManhoursAllocation();       
-        
-    //   },
-    //   deep:true
-    // },
-
     auditeesTech:{
       handler(){
-        
-        // this.calculateExcessShort();      
         this.calculateAdjustedManhoursAllocation();      
       },
       deep:true
     },
-
-    // adjustedManhoursAllocationTech:{
-    //   handler(){      
-    //     // this.calculateExcessShort();
-       
-    //     this.calculateAdjustedManhoursAllocation();       
-        
-    //   },
-    //   deep:true
-    // },
 
     auditeesTreasury:{
       handler(){       
@@ -1246,16 +1128,6 @@ export default {
       },
       deep:true
     },
-
-    // adjustedManhoursAllocationTreasury:{
-    //   handler(){      
-    //     // this.calculateExcessShort();
-       
-    //     this.calculateAdjustedManhoursAllocation();       
-        
-    //   },
-    //   deep:true
-    // },
 
     finalAdjustedMHOperations:{
       handler(){
@@ -1294,19 +1166,12 @@ export default {
   
   created(){
     this.createResourceAllocations();
-    
-    
-
   },
-  
-  
+   
   mounted(){
     try {
     this.retrieveDataFromDatabase();
     this.createResourceAllocations();
-    // this.retrieveAllAuditeeSummaries();
-    // this.createResourceAllocations();
-    // this.populateResourceTable();
     this.calculateAdjustedManhoursAllocation();
   } catch (error) {
     console.error('Error during component mount:', error);
