@@ -1,68 +1,74 @@
 <template>
   <div class="riskassessment">
     <div class="ra-table"></div>
-    <table id="ra-tablearea">
+    <table class="ra-tablearea">
       <tr>
-        <th></th>
-        <th>Sector</th>
-        <th>Unit</th>
-        <th>Factor</th>
-        <th>Credit Risk - Loan Portfolio Risk</th>
-        <th>Credit Risk - Counterparty Credit Risk</th>
-        <th>Market Risk - Interest Rate Risk</th>
-        <th>Market Risk - Commodity Price Risk</th>
-        <th>Operational Risk - Internal Processes Risk</th>
-        <th>Operational Risk - Fraud and Misconduct Risk</th>
-        <th>Operational Risk - Business Continuity Risk</th>
-        <th>Liquidity Risk - Funding and Liquidity Risk</th>
-        <th>Liquidity Risk - Contingency Funding Risk</th>
-        <th>Compliance Risk</th>
-        <th>Legal Risk</th>
-        <th>Strategy Risk - Business Model Risk</th>
-        <th>Strategy Risk - Reputational Risk</th>
-        <th>Cybersecurity Risk</th>
-        <th>Interest Rate Risk</th>
-        <th>AML and Financial Crime Risk</th>
-        <th>ESG Risk</th>
-        <th>Conduct Risk</th>
-        <th>Total Scores</th>
-        <th>No. Of Risks Rated</th>
-        <th>BenchMark Results</th>
+        <th rowspan="2"></th>
+        <th rowspan="2">Sector</th>
+        <th rowspan="2">Unit</th>
+        <th rowspan="2">Factor</th>
+        <th class="opstitle" colspan="5">Operational & Compliance Risks</th>
+        <th class="credittitle" colspan="6">Credit & Business Risks</th>
+        <th class="treastitle" colspan="6">Market & Treasury Risks</th>
+        <th class="techtitle">Technology Risks</th>
+        <th rowspan="2">Total Scores</th>
+        <th rowspan="2">No. Of Risks Rated</th>
+        <th rowspan="2">BenchMark Results</th>
+      </tr>
+      <tr>
+        <th class="risks1">Internal Processes Risk</th>
+        <th class="risks1">Fraud and Misconduct Risk</th>
+        <th class="risks1">Business Continuity Risk</th>
+        <th class="risks1">Compliance Risk</th>
+        <th class="risks1">AML and Financial Crime Risk</th>
+        <th class="risks2">Loan Portfolio Risk</th>
+        <th class="risks2">Legal Risk</th>
+        <th class="risks2">Business Model Risk</th>
+        <th class="risks2">Reputational Risk</th>
+        <th class="risks2">ESG Risk</th>
+        <th class="risks2">Conduct Risk</th>
+        <th class="risks3">Counterparty Credit Risk</th>
+        <th class="risks3">Foreign Exchange Rate Risk</th>
+        <th class="risks3">Commodity Price Risk</th>      
+        <th class="risks3">Funding and Liquidity Risk</th>
+        <th class="risks3">Contingency Funding Risk</th>
+        <th class="risks3">Interest Rate Risk</th>
+        <th class="risks4">Cybersecurity Risk</th>     
       </tr>
       <tr v-for="(item, index) in summaryScores" :key="index">
         <td><input type="checkbox" name="unitCheckbox" :checked="checkedIndex === index" @change="updateCheckbox(index), getSelectedUnits(item)" v-model="isChecked[index]"></td>
-        <td>{{ item.auditee.sector }}</td>
-        <td>{{ item.auditee.unit }}</td>
+        <td class="sector">{{ item.auditee.sector }}</td>
+        <td class="unit">{{ item.auditee.unit }}</td>
         <td>
-          <button v-show="checkedIndex===index && isChecked[index]===true " @click="showScoringEvent(index)">Score</button>
+          <button id="buttonAll" v-show="checkedIndex===index && isChecked[index]===true " @click="showScoringEvent(index)">Score</button>
          </td>
+         <td><span>{{ item.operationalRiskInternalProcessesRisk }}</span></td>
+         <td><span>{{ item.operationalRiskFraudMisconductRisk }}</span></td>
+         <td><span>{{ item.operationalRiskBusinessContinuityRisk }}</span></td>
+         <td><span>{{ item.complianceRisk }}</span></td>
+         <td><span>{{ item.amlFinancialCrimeRisk }}</span></td>
         <td><span>{{ item.creditRiskLoanPortfolioRisk }}</span></td>
-        <td><span>{{ item.creditRiskCounterpartyCreditRisk }}</span></td>
-        <td><span>{{ item.marketRiskInterestRateRisk }}</span></td>
-        <td><span>{{ item.marketRiskCommodityPriceRisk }}</span></td>
-        <td><span>{{ item.operationalRiskInternalProcessesRisk }}</span></td>
-        <td><span>{{ item.operationalRiskFraudMisconductRisk }}</span></td>
-        <td><span>{{ item.operationalRiskBusinessContinuityRisk }}</span></td>
-        <td><span>{{ item.liquidityRiskFundingLiquidityRisk }}</span></td>
-        <td><span>{{ item.liquidityRiskContingencyFundingRisk }}</span></td>
-        <td><span>{{ item.complianceRisk }}</span></td>
         <td><span>{{ item.legalRisk }}</span></td>
         <td><span>{{ item.strategyRiskBusinessModelRisk }}</span></td>
         <td><span>{{ item.strategyRiskReputationalRisk }}</span></td>
-        <td><span>{{ item.cyberSecurityRisk }}</span></td>
-        <td><span>{{ item.interestRateRisk }}</span></td>
-        <td><span>{{ item.amlFinancialCrimeRisk }}</span></td>
         <td><span>{{ item.esgRisk }}</span></td>
         <td><span>{{ item.conductRisk }}</span></td>
+        <td><span>{{ item.creditRiskCounterpartyCreditRisk }}</span></td>
+        <td><span>{{ item.marketRiskInterestRateRisk }}</span></td>
+        <td><span>{{ item.marketRiskCommodityPriceRisk }}</span></td>  
+        <td><span>{{ item.liquidityRiskFundingLiquidityRisk }}</span></td>
+        <td><span>{{ item.liquidityRiskContingencyFundingRisk }}</span></td>
+        <td><span>{{ item.interestRateRisk }}</span></td>      
+        <td><span>{{ item.cyberSecurityRisk }}</span></td>   
         <td><span>{{item.totalScores}}</span></td>
         <td><span>{{item.numberRisksRated}}</span></td>
-        <td><span>{{ item.benchmarkResults }}</span></td>
+        <td :class="getRiskRatingClass(item.benchmarkResults)"><span>{{ item.benchmarkResults }}</span></td>
                       
       </tr>
                    
     </table>
       
-       <RiskScoring v-if="showRiskScoring  " :unit="unit" :getUpdateSave="getUpdateSave"  :clearChecking="clearChecking" />
+       <RiskScoring v-if="showRiskScoring  " :unit="unit" :getUpdateSave="getUpdateSave"  :clearChecking="clearChecking"  />
   </div>
 </template>
 
@@ -122,6 +128,15 @@ export default {
     }
   },
   methods:{
+    getRiskRatingClass(riskRating){
+      return {
+        'cell-red': riskRating === 'High Risk',
+        'cell-yellow': riskRating === 'Medium Risk',
+        'cell-green': riskRating === 'Low Risk'
+      };
+    },
+    
+    
     displayFactors(){
       this.showFactor= !this.showFactor;
     },
@@ -157,16 +172,15 @@ export default {
       this.showRiskScoring = value;
       this.isChecked= new Array(length).fill(false);
    },
-   getAllSummaryScores(){
-      RiskScoringService.getSummaryScores()
-        .then(response =>{
-          this.summaryScores=response.data;
-          console.log(this.summaryScores)
-        })
-        .catch(error=>{
-          console.log(error)
-        })
-   },
+   async getAllSummaryScores() {
+    try {
+      const response = await RiskScoringService.getSummaryScores();
+      this.summaryScores = response.data;
+      console.log(this.summaryScores);
+    } catch (error) {
+      console.log(error);
+    }
+},
    //async keyword is appended in the function when it returns a promise such when you need to get data from the database.  In below case,
    //getAssessmentScores() involves a promise and is marked with keyword await.  This means, the functions will not proceed with its codes until the
    //the Promise is settled such as when there is a response from ths server.
@@ -272,13 +286,15 @@ export default {
     
   },
   mounted(){
-    this.getAllSummaryScores();
     this.getAllAssessmentScores();
+    this.getAllSummaryScores();
+    
     // this.updateSummaryScores();
   },
 
   watch:{
-    showFactor(){
+    showRiskScoring(){
+      this.getAllAssessmentScores();
       this.getAllSummaryScores();
     }
   } 

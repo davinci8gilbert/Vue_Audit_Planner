@@ -20,7 +20,12 @@ body {
   }
 
   .table-score th{
-    background: #8c0f26;
+    background: #545189;
+    
+  }
+
+  .table-score .risks{
+    background: #d1698a;
   }
 
   .pop-container{
@@ -40,7 +45,9 @@ body {
     padding: 8px 5px 5px 8px;
     color:white;
     font-size:x-large;
-    background-color: #520513;
+    background-color: #311b71;
+    border-top-left-radius: 15px;
+    border-top-right-radius:15px ;
   }
 
   #pop-unitname{
@@ -50,7 +57,7 @@ body {
     padding: 8px 8px 8px 8px;
     color:white;
     font-size: larger;
-    background-color: #520513;
+    background-color: #311b71;
   }
 
   .header {
@@ -62,7 +69,8 @@ body {
     margin: 0;
     padding: 0 8px 0 8px;
     width: auto;
-    background: linear-gradient(to bottom, #520513,white);
+    background-color: #311b71;
+    border-radius: 10px;
   
   }
   
@@ -80,12 +88,12 @@ body {
   
   .nav-links button {
     padding: 9px;
-    background-color: #520513;
+    background-color: #44376a;
     margin-right: 8px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     border-width: 0px;
-    box-shadow: 5px 5px #88888888;
+    box-shadow: 5px 5px #dcd9d988;
     color: aliceblue;
   }
   
@@ -128,7 +136,7 @@ body {
   }
   
   .login-form {
-    width: 30%;
+    width: 20%;
     height: 30%;
     margin: auto;
     margin-top: 200px;
@@ -139,24 +147,26 @@ body {
   
   
   .login-form input {
-    width: 100%;
+    width: 95%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin-left:10px;
+    margin-right: 10px;
     display: inline-block;
     border: 1px solid #848181;
-    border-radius: 4px;
+    border-radius: 10px;
     box-sizing: border-box;
-    background: #f2d4d9;
+    background: #e2dbee;
+    text-align: left;
   }
   
   .login-form button {
-    width: 100%;
-    background-color: #520513;
+    width: 40%;
+    background-color: #610fa9;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
   }
 
@@ -172,9 +182,11 @@ body {
   
   table {
     border-collapse: collapse;
-    width: auto;
+    width: 100%;
+    table-layout: auto;
     margin-left: 0;
     margin-right: auto;
+    border-radius: 15px;
   }
 
     
@@ -182,7 +194,7 @@ body {
     padding-top: 4px;
     padding-bottom: 4px;
     text-align:center;
-    background-color: #8c0f26;
+    background-color: #545189;
     color: white;
   }
   
@@ -193,12 +205,17 @@ body {
   }
   
   table tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #eeebf8;
   }
   
   table tr:hover {
-    background-color: #ddd;
+    background-color: #a7aafe;
+    /* color:white; */
   }
+
+  /* table tr:hover:not([style="background-color: yellow;"]) { */
+    /* color: white; */
+  /* } */
   
   #menubuttons {
     display: flex;
@@ -238,7 +255,7 @@ body {
     box-sizing: border-box;
   }
   
-  .chart-container {
+  /* .chart-container {
     flex: 1 1 200px;
   }
   
@@ -249,24 +266,24 @@ body {
     justify-content: space-between;
     margin: 8px;
   
-  }
+  } */
   
-  .issues-table {
+  /* .issues-table {
     flex: 2 1 200px;
-  }
+  } */
   
   .row {
     padding: 8px;
   }
   
-  .issue-form-container {
+  /* .issue-form-container {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 16px;
   }
-  
-  .issue-form-container .createIssueBody {
+   */
+  /* .issue-form-container .createIssueBody {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -293,9 +310,9 @@ body {
   
   #cancelcreate {
     margin-left: 20px;
-  }
+  } */
   
-  .issue-form-container button{
+  /* .issue-form-container button{
     padding: 8px;
     border-radius: 4px solid transparent ;
   }
@@ -313,7 +330,7 @@ body {
   
   .issue-details-container .auditdetails{
     padding: 16px;
-  }
+  } */
   label, span {
     line-height: 25px;
   }
@@ -336,8 +353,19 @@ body {
       width: 160px;
       height: 160px; 
   }
+
+  #login-head{
+    text-align: left;
+    padding-left: 10px;
+    color:rgb(254, 253, 253)
+
+  }
+
+  .login-form{
+    background-color: #c0baf0;
+  }
   
-  .login-form .header-with-logo{
+  /* .login-form .header-with-logo{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -345,15 +373,20 @@ body {
   .login-form .header-with-logo h2{
     margin-top: auto;
     margin-bottom: auto;
-  }
+  } */
 
   .button-riskscore{
     display:flex;
   }
   
   button{
-    margin:3px;
+    margin:3px; 
     
+  }
+
+  button:hover {
+    margin:3px;
+    cursor: pointer;
   }
 
   .main-container-box{
@@ -419,19 +452,62 @@ body {
   #tab-lvl1{
     text-align: left;
     font-weight: bold;
+   
+    
+    
   }
 
   #tab-lvl2{
     text-align: left;
-    padding-left: 50px;
-   
+    padding-left: 50px;  
+    
   }
 
   #tab-lvl3{
-    text-align: left;
-    padding-left: 80px;
+    text-align: center;
+    /* padding-left: 80px; */
     font-weight: bold;
-   
+    background-color: #bfbfea;
+    
+  }
+
+  #tab-lvl4{
+    text-align: left;
+    font-weight: bold;  
+    
+    
+  }
+  #tab-lvl5{
+    background-color: #97a4d5;
+    color:white;
+  }
+
+  #tab-lvl6{
+    font-weight: bold;
+  }
+  #tab-lvl7{
+  
+    text-align: left;
+    font-weight: bold;
+  }
+
+  #tab-lvl8{
+    background-color: #97a4d5; 
+    text-align: left;
+    font-weight: bold;
+    color:white;
+  }
+  #tab-lvl9{
+    background-color: #ba85f3; 
+    text-align: left;
+    font-weight: bold;
+    color:white;
+  }
+  #tab-lvl10{
+    background-color: #97a4d5; 
+    text-align: center;
+    font-weight: bold;
+    color:white;
   }
 
   #ralloc-units{
@@ -463,6 +539,7 @@ body {
 
    input{
     text-align: center;
+    border-radius: 7px;
    }
 
    #buttonAdjustMHCont{
@@ -479,6 +556,164 @@ body {
     border-radius: 10px;
    }
 
+   .cell-red {
+    background-color: rgb(242, 143, 143);
+    /* color: white; */
+  }
+  .cell-yellow {
+    background-color: rgb(243, 243, 141);
+    
+  }
+  .cell-green {
+    background-color: rgb(146, 246, 99);
+    /* color: white; */
+  }
+
+  .enabled-input {
+    border: 2px solid magenta;;
+  }
+
+  .fixed-background {
+    background-color: #97a4d5;
+    color:white;
+  }
+  
+  .negative-value {
+    color: red;
+  }
+
+  #excessShortLabel{
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .sector{
+    background-color:#8b83a5 ;
+    color:white;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .unit{
+    background-color:#e1e0f2 ;
+    text-align: left;
+    padding-left: 10px;
+    
+  }
+
+  .unitname{
+    font-weight: bold;
+    text-align: left;
+    background-color: #7f77ce;
+    color:white
+  }
+
+  .risks1{
+    background-color: #89c5ae;
+  }
+
+  .risks2{
+    background-color: #f3e441;
+  }
+
+  .risks3{
+    background-color: #7ebcf2;
+  }
+
+  .risks4{
+    background-color: #eebd80;
+  }
+
+  .opstitle{
+    background-color:  #0e9e67;
+  }
+
+  .credittitle{
+    background-color: #837c34;
+  }
+
+  .treastitle{
+    background-color: #207bcb;
+  }
+
+  .techtitle{
+    background-color: #f37c37;
+  }
+
+  #risks1{
+    background-color: #89c5ae;
+  }
+
+ 
+  #risks2{
+    background-color: #f3e441;
+  }
+
+  #risks3{
+    background-color: #7ebcf2;
+  }
+
+  #risks4{
+    background-color: #eebd80;
+  }
+
+  #opstitle{
+    background-color:  #0e9e67;
+  }
+
+  #credittitle{
+    background-color: #837c34;
+  }
+
+  #treastitle{
+    background-color: #207bcb;
+  }
+
+  #techtitle{
+    background-color: #f37c37;
+  }
+
+  #buttonAll{
+    padding:10px;
+    box-shadow: 5px 5px #625ba0;
+    background-color: #b693ec;
+    border-radius: 10px;
+    color:white;
+  }
+
+  #ralloc-tablearea th:first-child {
+    border-top-left-radius: 10px;
+  }
+
+  #ralloc-tablearea th:last-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .ra-tablearea tr:first-child th:first-child{
+    border-top-left-radius: 20px;
+  }
+
+  .ra-tablearea tr:first-child th:last-child{
+    border-top-right-radius: 20px;
+  }
+
+  #ralloc-units tr:first-child th:first-child{
+    border-top-left-radius: 20px;
+  }
+
+  #ralloc-units tr:first-child th:last-child{
+    border-top-right-radius: 20px;
+  }
+
+  
+
+
+
+ 
+ 
+ 
 
 
 

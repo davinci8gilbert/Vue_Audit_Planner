@@ -1,6 +1,7 @@
 <template>
-    <div class="login-form">
-        <h1>Login</h1>
+   <div class="login-container">
+   <div class="login-form">
+        <h1 id="login-head">Login</h1>
         <form>
 
             <div>
@@ -18,6 +19,7 @@
         </form>
         <!-- <p>{{ message }}</p> -->
     </div>
+</div>
 </template>
 
 <script>

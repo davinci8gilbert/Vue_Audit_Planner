@@ -1,5 +1,5 @@
 <template>
-    
+    <div class="ult-container">
     <div class="header">
         <h1 class="nav-title">ANNUAL AUDIT PLANNER</h1>
         <!-- <h1 class="nav-title">{{ title }}</h1> -->
@@ -23,6 +23,7 @@
 
         <component :is="componentTitles[tabs.indexOf(currentTab)]"></component>
     </div>
+</div>
 </template>
 
 <script>

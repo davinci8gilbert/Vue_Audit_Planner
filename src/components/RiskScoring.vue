@@ -5,41 +5,57 @@
 
         <span id="pop-unitname">Unit Name: {{ unit }}</span>
         <table class="table-score">
-            <tr>             
-                <th>Factor</th>
-                <th>Credit Risk - Loan Portfolio Risk</th>
-                <th>Credit Risk - Counterparty Credit Risk</th>
-                <th>Market Risk - Interest Rate Risk</th>
-                <th>Market Risk - Commodity Price Risk</th>
-                <th>Operational Risk - Internal Processes Risk</th>
-                <th>Operational Risk - Fraud and Misconduct Risk</th>
-                <th>Operational Risk - Business Continuity Risk</th>
-                <th>Liquidity Risk - Funding and Liquidity Risk</th>
-                <th>Liquidity Risk - Contingency Funding Risk</th>
-                <th>Compliance Risk</th>
-                <th>Legal Risk</th>
-                <th>Strategy Risk - Business Model Risk</th>
-                <th>Strategy Risk - Reputational Risk</th>
-                <th>Cybersecurity Risk</th>
-                <th>Interest Rate Risk</th>
-                <th>AML and Financial Crime Risk</th>
-                <th>ESG Risk</th>
-                <th>Conduct Risk</th>
+            <tr>
+                <th rowspan="2">Factor</th>
+                <th id="opstitle" colspan="5">Operational & Compliance Risks</th>
+                <th id="credittitle" colspan="6">Credit & Business Risks</th>
+                <th id="treastitle" colspan="6">Market & Treasury Risks</th>
+                <th id="techtitle">Technology Risks</th>
+            </tr>
+            
+            <tr>      
+                <th id="risks1">Internal Processes Risk</th>
+                <th id="risks1">Fraud and Misconduct Risk</th>
+                <th id="risks1">Business Continuity Risk</th>
+                <th id="risks1">Compliance Risk</th>
+                <th id="risks1">AML and Financial Crime Risk</th>
+                <th id="risks2">Loan Portfolio Risk</th>
+                <th id="risks2">Legal Risk</th>
+                <th id="risks2">Business Model Risk</th>
+                <th id="risks2">Reputational Risk</th>
+                <th id="risks2">ESG Risk</th>
+                <th id="risks2">Conduct Risk</th>
+                <th id="risks3">Counterparty Credit Risk</th>
+                <th id="risks3">Foreign Exchange Rate Risk</th>
+                <th id="risks3">Commodity Price Risk</th>      
+                <th id="risks3">Funding and Liquidity Risk</th>
+                <th id="risks3">Contingency Funding Risk</th>
+                <th id="risks3">Interest Rate Risk</th>
+                <th id="risks4">Cybersecurity Risk</th>  
+                
+
+                <!-- <th class="risks">Internal Processes Risk</th>
+                <th class="risks">Fraud and Misconduct Risk</th>
+                <th class="risks">Business Continuity Risk</th>
+                <th class="risks">Compliance Risk</th>
+                <th class="risks">AML and Financial Crime Risk</th>
+                <th class="risks">Loan Portfolio Risk</th>
+                <th class="risks">Legal Risk</th>
+                <th class="risks">Business Model Risk</th>
+                <th class="risks">Reputational Risk</th>
+                <th class="risks">ESG Risk</th>
+                <th class="risks">Conduct Risk</th>
+                <th class="risks">Counterparty Credit Risk</th>
+                <th class="risks">Foreign Exchange Rate Risk</th>
+                <th class="risks">Commodity Price Risk</th>             
+                <th class="risks">Funding and Liquidity Risk</th>
+                <th class="risks">Contingency Funding Risk</th>               
+                <th class="risks">Interest Rate Risk</th>              
+                <th class="risks">Cybersecurity Risk</th>               -->
             </tr>                  
-                <tr v-for="(item, index) in factorsForScoring" :key="index">                   
-                    <td><label> {{item.factorName}}</label></td>
-                    <td><select v-model="crLoanPortfolioRiskScore[index]">                      
-                        <option v-for="score in scores" :key="score" :value="score" >{{ score }} </option>
-                    </select></td>
-                    <td><select v-model="crCounterPartyCreditRiskScore[index]">
-                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
-                    </select></td>
-                    <td><select v-model="mrInterestRateRiskScore[index]">
-                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
-                    </select></td>
-                    <td><select v-model="mrCommodityPriceRiskScore[index]">
-                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
-                    </select></td>
+                    
+                <tr v-for="(item, index) in factorsForScoring" :key="index">    
+                    <td class="unit"><label> {{item.factorName}}</label></td>               
                     <td><select v-model="orInternalProcessesRiskScore[index]">
                         <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
                     </select></td>
@@ -49,14 +65,14 @@
                     <td><select v-model="orBusinessContinuityRisk[index]">
                         <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
                     </select></td>
-                    <td><select v-model="lrFundingAndLiquidityRiskScore[index]">
-                        <option v-for="score in scores" :key="score" :value="score" >{{ score }}</option>
-                    </select></td>
-                    <td><select v-model="lrContingencyFundingRiskScore[index]">
-                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
-                    </select></td>
                     <td><select v-model="complianceRiskScore[index]">
                         <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
+                    </select></td>
+                    <td><select v-model="amlAndFinancialCrimeRiskScore[index]">
+                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
+                    </select></td>
+                    <td><select v-model="crLoanPortfolioRiskScore[index]">                      
+                        <option v-for="score in scores" :key="score" :value="score" >{{ score }} </option>
                     </select></td>
                     <td><select v-model="legalRiskScore[index]">
                         <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
@@ -67,26 +83,38 @@
                     <td><select v-model="srReputationalRiskScore[index]">
                         <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
                     </select></td>
-                    <td><select v-model="cybersecurityRiskScore[index]">
-                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
-                    </select></td>
-                    <td><select v-model="interestRateRiskScore[index]">
-                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
-                    </select></td>
-                    <td><select v-model="amlAndFinancialCrimeRiskScore[index]">
-                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
-                    </select></td>
                     <td><select v-model="esgRiskScore[index]">
                         <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
                     </select></td>
                     <td><select v-model="conductRiskScore[index]">
                         <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
                     </select></td>
+                    <td><select v-model="crCounterPartyCreditRiskScore[index]">
+                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
+                    </select></td>
+                    <td><select v-model="mrInterestRateRiskScore[index]">
+                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
+                    </select></td>
+                    <td><select v-model="mrCommodityPriceRiskScore[index]">
+                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
+                    </select></td>
+                    <td><select v-model="lrFundingAndLiquidityRiskScore[index]">
+                        <option v-for="score in scores" :key="score" :value="score" >{{ score }}</option>
+                    </select></td>
+                    <td><select v-model="lrContingencyFundingRiskScore[index]">
+                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
+                    </select></td>
+                    <td><select v-model="interestRateRiskScore[index]">
+                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
+                    </select></td>                
+                    <td><select v-model="cybersecurityRiskScore[index]">
+                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
+                    </select></td>
                  </tr>          
             <p></p>
             <div class="button-riskscore">
-            <button id="buttonScoreSave" @click="saveScores(), getUpdateSave(false)">Save</button>
-            <button id="buttonClose" @click="getUpdateSave(false),cancel()">Cancel</button>
+            <button id="buttonAll" @click="saveScores(), getUpdateSave(false)">Save</button>
+            <button id="buttonAll" @click="getUpdateSave(false),cancel()">Cancel</button>
             </div>
         </table>
     </div>
@@ -203,7 +231,7 @@ export default {
             window.location.reload(true); // Perform a hard refresh
             });
 
-            this.hardRefresh();
+            // this.hardRefresh();
             
         },
         cancel(){           

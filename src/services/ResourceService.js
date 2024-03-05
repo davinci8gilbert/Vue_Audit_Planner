@@ -16,6 +16,10 @@ class ResourceService {
     inputManhoursAndReason(id,data){
         return http.put(`/resourceallocmanhoursreason/${id}`,data)
     }
+
+    updateResourceTable(id,data){
+        return http.put(`/resourcetable/${id}`,data)
+    }
 }
 
 export default new ResourceService();

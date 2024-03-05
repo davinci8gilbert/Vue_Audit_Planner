@@ -14,134 +14,141 @@
         </tr>
       </thead>
         <tr>
-          <td id="tab-lvl1">Annual Budget:</td> 
+          <td id="tab-lvl4" colspan="6">Annual Budget:</td> 
         </tr>
         <tr>
           <td id="tab-lvl2">Headcount</td>
-          <td><input type="text" v-model.number= "headcount[0]" :disabled="isInputDisabled(1)||isDisabled"></td>
-          <td><input type="text" v-model.number= "headcount[1]" :disabled=isInputDisabled(2)||isDisabled></td>
-          <td><input type="text" v-model.number= "headcount[2]" :disabled=isInputDisabled(3)||isDisabled></td>
-          <td><input type="text" v-model.number= "headcount[3]" :disabled=isInputDisabled(4)||isDisabled></td>
+          <td><input type="text" v-model.number= "headcount[0]" :disabled="isInputDisabled(1)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(1) && !isDisabled }"></td>
+          <td><input type="text" v-model.number= "headcount[1]" :disabled="isInputDisabled(2)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(2) && !isDisabled }"></td>
+          <td><input type="text" v-model.number= "headcount[2]" :disabled="isInputDisabled(3)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(3) && !isDisabled }"></td>
+          <td><input type="text" v-model.number= "headcount[3]" :disabled="isInputDisabled(4)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(4) && !isDisabled }"></td>
           <td><span>{{ headcount[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Number Of Working Days</td>
-          <td><input type="text" v-model.number= "numberOfWorkDays[0]" :disabled=isInputDisabled(1)||isDisabled></td>
-          <td><input type="text" v-model.number= "numberOfWorkDays[1]" :disabled=isInputDisabled(2)||isDisabled></td>
-          <td><input type="text" v-model.number= "numberOfWorkDays[2]" :disabled=isInputDisabled(3)||isDisabled></td>
-          <td><input type="text" v-model.number= "numberOfWorkDays[3]" :disabled=isInputDisabled(4)||isDisabled></td>
+          <td><input type="text" v-model.number= "numberOfWorkDays[0]" :disabled="isInputDisabled(1)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(1) && !isDisabled }"></td>
+          <td><input type="text" v-model.number= "numberOfWorkDays[1]" :disabled="isInputDisabled(2)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(2) && !isDisabled }"></td>
+          <td><input type="text" v-model.number= "numberOfWorkDays[2]" :disabled="isInputDisabled(3)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(3) && !isDisabled }"></td>
+          <td><input type="text" v-model.number= "numberOfWorkDays[3]" :disabled="isInputDisabled(4)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(4) && !isDisabled }"></td>
           <td><span>{{ numberOfWorkDays[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Number of Daily Work Hours</td>
-          <td><input type="text" v-model.number= "numberOfDailyWorkHours[0]" :disabled=isInputDisabled(1)||isDisabled></td>
-          <td><input type="text" v-model.number= "numberOfDailyWorkHours[1]" :disabled=isInputDisabled(2)||isDisabled></td>
-          <td><input type="text" v-model.number= "numberOfDailyWorkHours[2]" :disabled=isInputDisabled(3)||isDisabled></td>
-          <td><input type="text" v-model.number= "numberOfDailyWorkHours[3]" :disabled=isInputDisabled(4)||isDisabled></td>
+          <td><input type="text" v-model.number= "numberOfDailyWorkHours[0]" :disabled="isInputDisabled(1)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(1) && !isDisabled }"></td>
+          <td><input type="text" v-model.number= "numberOfDailyWorkHours[1]" :disabled="isInputDisabled(2)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(2) && !isDisabled }"></td>
+          <td><input type="text" v-model.number= "numberOfDailyWorkHours[2]" :disabled="isInputDisabled(3)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(3) && !isDisabled }"></td>
+          <td><input type="text" v-model.number= "numberOfDailyWorkHours[3]" :disabled="isInputDisabled(4)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(4) && !isDisabled }"></td>
           <td><span></span></td>
         </tr>
         <tr>
           <td id="tab-lvl3">Total Working Hours</td>
-          <td><span>{{ totalWorkHours[0] }}</span></td>
-          <td><span>{{ totalWorkHours[1] }}</span></td>
-          <td><span>{{ totalWorkHours[2] }}</span></td>
-          <td><span>{{ totalWorkHours[3] }}</span></td>
-          <td><span>{{ totalWorkHours[4] }}</span></td>
+          <td id="tab-lvl3"><span>{{ totalWorkHours[0] }}</span></td>
+          <td id="tab-lvl3"><span>{{ totalWorkHours[1] }}</span></td>
+          <td id="tab-lvl3"><span>{{ totalWorkHours[2] }}</span></td>
+          <td id="tab-lvl3"><span>{{ totalWorkHours[3] }}</span></td>
+          <td id="tab-lvl3"><span>{{ totalWorkHours[4] }}</span></td>
         </tr>
         <tr>
           <td colspan="4"></td>
         </tr>
         <tr>
-          <td id="tab-lvl1" colspan="6">Adjustments (in Hours)</td>       
+          <td id="tab-lvl4" colspan="6">Adjustments (in Hours)</td>       
         </tr>
         <tr>
           <td id="tab-lvl2"> Annual Leaves</td>
-          <td><input type="number" v-model.number= "annualLeaves[0]" :disabled=isInputDisabled(1)||isDisabled></td>
-          <td><input type="number" v-model.number= "annualLeaves[1]" :disabled=isInputDisabled(2)||isDisabled></td>
-          <td><input type="number" v-model.number= "annualLeaves[2]" :disabled=isInputDisabled(3)||isDisabled></td>
-          <td><input type="number" v-model.number= "annualLeaves[3]" :disabled=isInputDisabled(4)||isDisabled></td>
+          <td><input type="number" v-model.number= "annualLeaves[0]" :disabled="isInputDisabled(1)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(1) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "annualLeaves[1]" :disabled="isInputDisabled(2)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(2) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "annualLeaves[2]" :disabled="isInputDisabled(3)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(3) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "annualLeaves[3]" :disabled="isInputDisabled(4)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(4) && !isDisabled }"></td>
           <td><span>{{ annualLeaves[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Maternity Leave (Known)</td>
-          <td><input type="number" v-model.number= "maternityLeave[0]" :disabled=isInputDisabled(1)||isDisabled></td>
-          <td><input type="number" v-model.number= "maternityLeave[1]" :disabled=isInputDisabled(2)||isDisabled></td>
-          <td><input type="number" v-model.number= "maternityLeave[2]" :disabled=isInputDisabled(3)||isDisabled></td>
-          <td><input type="number" v-model.number= "maternityLeave[3]" :disabled=isInputDisabled(4)||isDisabled></td>
+          <td><input type="number" v-model.number= "maternityLeave[0]" :disabled="isInputDisabled(1)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(1) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "maternityLeave[1]" :disabled="isInputDisabled(2)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(2) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "maternityLeave[2]" :disabled="isInputDisabled(3)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(3) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "maternityLeave[3]" :disabled="isInputDisabled(4)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(4) && !isDisabled }"></td>
           <td><span>{{ maternityLeave[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Annual Planning Activities</td>
-          <td><input type="number" v-model.number= "annualPlanningAct[0]" :disabled=isInputDisabled(1)||isDisabled></td>
-          <td><input type="number" v-model.number= "annualPlanningAct[1]" :disabled=isInputDisabled(2)||isDisabled></td>
-          <td><input type="number" v-model.number= "annualPlanningAct[2]" :disabled=isInputDisabled(3)||isDisabled></td>
-          <td><input type="number" v-model.number= "annualPlanningAct[3]" :disabled=isInputDisabled(4)||isDisabled></td>
+          <td><input type="number" v-model.number= "annualPlanningAct[0]" :disabled="isInputDisabled(1)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(1) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "annualPlanningAct[1]" :disabled="isInputDisabled(2)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(2) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "annualPlanningAct[2]" :disabled="isInputDisabled(3)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(3) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "annualPlanningAct[3]" :disabled="isInputDisabled(4)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(4) && !isDisabled }"></td>
           <td><span>{{ annualPlanningAct[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Continuous Audit</td>
-          <td><input type="number" v-model.number= "continuousAudit[0]" :disabled=isInputDisabled(1)||isDisabled></td>
-          <td><input type="number" v-model.number= "continuousAudit[1]" :disabled=isInputDisabled(2)||isDisabled></td>
-          <td><input type="number" v-model.number= "continuousAudit[2]" :disabled=isInputDisabled(3)||isDisabled></td>
-          <td><input type="number" v-model.number= "continuousAudit[3]" :disabled=isInputDisabled(4)||isDisabled></td>
+          <td><input type="number" v-model.number= "continuousAudit[0]" :disabled="isInputDisabled(1)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(1) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "continuousAudit[1]" :disabled="isInputDisabled(2)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(2) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "continuousAudit[2]" :disabled="isInputDisabled(3)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(3) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "continuousAudit[3]" :disabled="isInputDisabled(4)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(4) && !isDisabled }"></td>
           <td><span>{{ continuousAudit[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Administrative Activities</td>
-          <td><input type="number" v-model.number= "adminActivities[0]" :disabled=isInputDisabled(1)||isDisabled></td>
-          <td><input type="number" v-model.number= "adminActivities[1]" :disabled=isInputDisabled(2)||isDisabled></td>
-          <td><input type="number" v-model.number= "adminActivities[2]" :disabled=isInputDisabled(3)||isDisabled></td>
-          <td><input type="number" v-model.number= "adminActivities[3]" :disabled=isInputDisabled(4)||isDisabled></td>
+          <td><input type="number" v-model.number= "adminActivities[0]" :disabled="isInputDisabled(1)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(1) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "adminActivities[1]" :disabled="isInputDisabled(2)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(2) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "adminActivities[2]" :disabled="isInputDisabled(3)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(3) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "adminActivities[3]" :disabled="isInputDisabled(4)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(4) && !isDisabled }"></td>
           <td><span>{{ adminActivities[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl2">Contingency Budget</td>
-          <td><input type="number" v-model.number= "contingencyBudget[0]" :disabled=isInputDisabled(1)||isDisabled></td>
-          <td><input type="number" v-model.number= "contingencyBudget[1]" :disabled=isInputDisabled(2)||isDisabled></td>
-          <td><input type="number" v-model.number= "contingencyBudget[2]" :disabled=isInputDisabled(3)||isDisabled></td>
-          <td><input type="number" v-model.number= "contingencyBudget[3]" :disabled=isInputDisabled(4)||isDisabled></td>
+          <td><input type="number" v-model.number= "contingencyBudget[0]" :disabled="isInputDisabled(1)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(1) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "contingencyBudget[1]" :disabled="isInputDisabled(2)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(2) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "contingencyBudget[2]" :disabled="isInputDisabled(3)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(3) && !isDisabled }"></td>
+          <td><input type="number" v-model.number= "contingencyBudget[3]" :disabled="isInputDisabled(4)||isDisabled" :class="{ 'enabled-input': !isInputDisabled(4) && !isDisabled }"></td>
           <td><span>{{ contingencyBudget[4] }}</span></td>
         </tr>
         <tr>
           <td id="tab-lvl3">Total Adjustment</td>
-          <td><span>{{ totalAdjustment[0] }}</span></td>
-          <td><span>{{ totalAdjustment[1] }}</span></td>
-          <td><span>{{ totalAdjustment[2] }}</span></td>
-          <td><span>{{ totalAdjustment[3] }}</span></td>
-          <td><span>{{ totalAdjustment[4] }}</span></td>
+          <td id="tab-lvl3"><span>{{ totalAdjustment[0] }}</span></td>
+          <td id="tab-lvl3"><span>{{ totalAdjustment[1] }}</span></td>
+          <td id="tab-lvl3"><span>{{ totalAdjustment[2] }}</span></td>
+          <td id="tab-lvl3"><span>{{ totalAdjustment[3] }}</span></td>
+          <td id="tab-lvl3"><span>{{ totalAdjustment[4] }}</span></td>
         </tr>
         <tr>
           <td colspan="6"></td>       
         </tr>
         <tr>
-          <td id="tab-lvl1">Available Hours For Audit</td>
+          <td id="tab-lvl8">Available Hours For Audit</td>
          
-          <td><span>{{ availHoursForAudit[0] }}</span></td>
-          <td><span>{{ availHoursForAudit[1] }}</span></td>
-          <td><span>{{ availHoursForAudit[2] }}</span></td>
-          <td><span>{{ availHoursForAudit[3] }}</span></td>
-          <td><span>{{ availHoursForAudit[4] }}</span></td>
+          <td id="tab-lvl5"><span>{{ availHoursForAudit[0] }}</span></td>
+          <td id="tab-lvl5"><span>{{ availHoursForAudit[1] }}</span></td>
+          <td id="tab-lvl5"><span>{{ availHoursForAudit[2] }}</span></td>
+          <td id="tab-lvl5"><span>{{ availHoursForAudit[3] }}</span></td>
+          <td id="tab-lvl5"><span>{{ availHoursForAudit[4] }}</span></td>
         </tr>
         <tr>
-          <td id="tab-lvl1">Actual Allocated Manhours</td>
-          <td><span>{{ actualAllocManhours[0] }}</span></td>
-          <td><span>{{ actualAllocManhours[1] }}</span></td>
-          <td><span>{{ actualAllocManhours[2] }}</span></td>
-          <td><span>{{ actualAllocManhours[3] }}</span></td>
-          <td><span>{{ actualAllocManhours[4] }}</span></td>
+          <td id="tab-lvl7">Actual Allocated Manhours</td>
+          <td id="tab-lvl6"><span>{{ actualAllocManhours[0] }}</span></td>
+          <td id="tab-lvl6"><span>{{ actualAllocManhours[1] }}</span></td>
+          <td id="tab-lvl6"><span>{{ actualAllocManhours[2] }}</span></td>
+          <td id="tab-lvl6"><span>{{ actualAllocManhours[3] }}</span></td>
+          <td id="tab-lvl6"><span>{{ actualAllocManhours[4] }}</span></td>
         </tr>
-        <tr>
-          <td id="tab-lvl1">Excess/(Short)</td>
-          <td><span>{{ excessShort[0] }}</span></td>
-          <td><span>{{ excessShort[1] }}</span></td>
-          <td><span>{{ excessShort[2] }}</span></td>
-          <td><span>{{ excessShort[3] }}</span></td>
-          <td><span>{{ excessShort[4] }}</span></td>
+        <tr class="fixed-background">
+          <!-- <td id="tab-lvl9">Excess/(Short)</td>
+          <td id="tab-lvl10"><span>{{ excessShort[0] }}</span></td>
+          <td id="tab-lvl10"><span>{{ excessShort[1] }}</span></td>
+          <td id="tab-lvl10"><span>{{ excessShort[2] }}</span></td>
+          <td id="tab-lvl10"><span>{{ excessShort[3] }}</span></td>
+          <td id="tab-lvl10"><span>{{ excessShort[4] }}</span></td> -->
+          <td id="excessShortLabel">Excess/(Short)</td>
+          <td :class="{ 'negative-value': isNegative(excessShort[0]) }"><span>{{ excessShort[0] }}</span></td>
+          <td :class="{ 'negative-value': isNegative(excessShort[1]) }"><span>{{ excessShort[1] }}</span></td>
+          <td :class="{ 'negative-value': isNegative(excessShort[2]) }"><span>{{ excessShort[2] }}</span></td>
+          <td :class="{ 'negative-value': isNegative(excessShort[3]) }"><span>{{ excessShort[3] }}</span></td>
+          <td :class="{ 'negative-value': isNegative(excessShort[4]) }"><span>{{ excessShort[4] }}</span></td>
+
         </tr>
       </table>
       <div class="btn-alloc">
-        <button id="btn-alloc" v-if=btnConditionAlloc @click="postDataResource(), showAllocationTable()">Allocate Manhours</button>
-        <button id="btn-alloc" v-if=btnConditionEdit @click="editResource()">Edit Resource</button>
+        <button id="buttonAll" v-if=btnConditionAlloc @click="postDataResource(), showAllocationTable()">Allocate Manhours</button>
+        <button id="buttonAll" v-if=btnConditionEdit @click="editResource()">Edit Resource</button>
       </div>
       <p id="table2-title" v-if="isAllocationTableShow">MANHOUR ALLOCATION FOR AUDIT ACTIVITIES</p>
       <table id="ralloc-units" v-if="isAllocationTableShow">
@@ -161,13 +168,13 @@
 
         <!-- -------------------------------------------------------------Operations Team----------------------------------------------------- -->
           <tr v-show="id==1">
-            <td id="tab-lvl1" colspan="9">Operations & Compliance Team: </td>
+            <td class="unitname" colspan="9">Operations & Compliance Team: </td>
           </tr>
           <tr v-show="id==1" v-for="(item, index) in auditeesOperations" :key="index">
             <td><input type="checkbox" name="unitCheckbox" :checked="checkedIndex === index && isChecked" @change="updateCheckbox(index), getSelectedUnits(item), inputBoxDisable(checkedIndex,index)" :disabled=isInputDisabled(1) v-model="isChecked[index]"></td>
-            <td id="tab-lvl2"><span>{{ item.auditee.sector }}</span></td>
-            <td id="tab-lvl2"><span>{{ item.auditee.unit }}</span></td>
-            <td><span>{{ item.benchmarkResult }}</span></td>
+            <td class="sector"><span>{{ item.auditee.sector }}</span></td>
+            <td class="unit"><span>{{ item.auditee.unit }}</span></td>
+            <td :class="getRiskRatingClass(item.benchmarkResult)"><span>{{ item.benchmarkResult }}</span></td>
             <td>
               <select v-model="item.auditStatus" :disabled="isInputDisabled(1) || !(checkedIndex===index && isChecked[index]===true)">
                 <option v-for="status in auditStatusIndicator" :key="status" :value="status">{{ status }}</option>
@@ -181,21 +188,21 @@
           <tr v-show="id==1" >
             <td colspan="9">
             <div id="buttonAdjustMHCont">
-              <button id="buttonAdjustMH" @click="clearInputs()">Clear</button>
-              <button id="buttonAdjustMH" @click="saveResourceUpdates()">Save Adjusted Manhours</button>              
+              <button id="buttonAll" @click="clearInputs()">Clear</button>
+              <button id="buttonAll" @click="saveResourceUpdates()">Save Adjusted Manhours</button>              
             </div>   
           </td>
           </tr>        
          
          <!-- ---------------------------------------------------Lending Team------------------------------------------------------- -->
           <tr v-show="id==2">
-            <td id="tab-lvl1" colspan="9">Lending Team: </td>
+            <td class="unitname" colspan="9">Lending Team: </td>
           </tr> 
           <tr v-show="id==2" v-for="(item, index) in auditeesCredit" :key="index">
             <td><input type="checkbox" name="unitCheckbox" :checked="checkedIndex === index && isChecked" @change="updateCheckbox(index), getSelectedUnits(item), inputBoxDisable(checkedIndex,index)" :disabled=isInputDisabled(2) v-model="isChecked[index]"></td>
-            <td id="tab-lvl2"><span>{{ item.auditee.sector }}</span></td>
-            <td id="tab-lvl2"><span>{{ item.auditee.unit }}</span></td>
-            <td><span>{{ item.benchmarkResult }}</span></td>
+            <td class="sector"><span>{{ item.auditee.sector }}</span></td>
+            <td class="unit"><span>{{ item.auditee.unit }}</span></td>
+            <td :class="getRiskRatingClass(item.benchmarkResult)"><span>{{ item.benchmarkResult }}</span></td>
             <td>
               <select v-model="item.auditStatus" :disabled="isInputDisabled(2) || !(checkedIndex===index && isChecked[index]===true)">
                 <option v-for="status in auditStatusIndicator" :key="status" :value="status">{{ status }}</option>
@@ -209,21 +216,21 @@
           <tr v-show="id==2">
             <td colspan="9">
             <div id="buttonAdjustMHCont">
-              <button id="buttonAdjustMH" @click=clearInputs()>Clear</button>
-              <button id="buttonAdjustMH" @click="saveResourceUpdates()">Save Adjusted Manhours</button>
+              <button id="buttonAll" @click=clearInputs()>Clear</button>
+              <button id="buttonAll" @click="saveResourceUpdates()">Save Adjusted Manhours</button>
               
             </div>   
           </td>
           </tr>     
             <!-- ---------------------------------------------Technology Team----------------------------------------------- -->
             <tr v-show="id==3">
-            <td id="tab-lvl1" colspan="9">Technology Team: </td>
+            <td class="unitname" colspan="9">Technology Team: </td>
           </tr> 
           <tr v-show="id==3" v-for="(item, index) in auditeesTech" :key="index" >
             <td><input type="checkbox" name="unitCheckbox" :checked="checkedIndex === index && isChecked" @change="updateCheckbox(index), getSelectedUnits(item), inputBoxDisable(checkedIndex,index)" :disabled=isInputDisabled(3) v-model="isChecked[index]"></td>
-            <td id="tab-lvl2"> <span>{{ item.auditee.sector }}</span></td>
-            <td id="tab-lvl2"><span>{{ item.auditee.unit }}</span></td>
-            <td><span>{{ item.benchmarkResult }}</span></td>
+            <td class="sector"> <span>{{ item.auditee.sector }}</span></td>
+            <td class="unit"><span>{{ item.auditee.unit }}</span></td>
+            <td :class="getRiskRatingClass(item.benchmarkResult)"><span>{{ item.benchmarkResult }}</span></td>
             <td>
               <select v-model="item.auditStatus" :disabled="isInputDisabled(3) || !(checkedIndex===index && isChecked[index]===true)">
                 <option v-for="status in auditStatusIndicator" :key="status" :value="status">{{ status }}</option>
@@ -237,21 +244,21 @@
           <tr v-show="id==3">
             <td colspan="9">
             <div id="buttonAdjustMHCont">
-              <button id="buttonAdjustMH" @click=clearInputs()>Clear</button>
-              <button id="buttonAdjustMH" @click="saveResourceUpdates()">Save Adjusted Manhours</button>         
+              <button id="buttonAll" @click=clearInputs()>Clear</button>
+              <button id="buttonAll" @click="saveResourceUpdates()">Save Adjusted Manhours</button>         
             </div>   
           </td>
           </tr>
              
           <!-- ---------------------------------------------------------------Treasury Team -------------------------------------------------------------- -->
           <tr v-show="id==4">
-            <td id="tab-lvl1" colspan="9">Treasury Team: </td>
+            <td class="unitname" colspan="9">Treasury Team: </td>
           </tr> 
           <tr v-show="id==4" v-for="(item, index) in auditeesTreasury" :key="index">
             <td><input type="checkbox" name="unitCheckbox" :checked="checkedIndex === index && isChecked" @change="updateCheckbox(index), getSelectedUnits(item), inputBoxDisable(checkedIndex,index)" :disabled=isInputDisabled(4) v-model="isChecked[index]"></td>
-            <td id="tab-lvl2"><span>{{ item.auditee.sector }}</span></td>
-            <td id="tab-lvl2"><span>{{ item.auditee.unit }}</span></td>
-            <td><span>{{ item.benchmarkResult }}</span></td>
+            <td class="sector"><span>{{ item.auditee.sector }}</span></td>
+            <td class="unit"><span>{{ item.auditee.unit }}</span></td>
+            <td :class="getRiskRatingClass(item.benchmarkResult)"><span>{{ item.benchmarkResult }}</span></td>
             <td>
               <select v-model="item.auditStatus" :disabled="isInputDisabled(4) || !(checkedIndex===index && isChecked[index]===true)">
                 <option v-for="status in auditStatusIndicator" :key="status" :value="status">{{ status }}</option>
@@ -265,8 +272,8 @@
           <tr v-show="id==4">
             <td colspan="9">
             <div id="buttonAdjustMHCont">
-              <button id="buttonAdjustMH" @click=clearInputs()>Clear</button>
-              <button id="buttonAdjustMH" @click="saveResourceUpdates()">Save Adjusted Manhours</button>          
+              <button id="buttonAll" @click=clearInputs()>Clear</button>
+              <button id="buttonAll" @click="saveResourceUpdates()">Save Adjusted Manhours</button>          
             </div>   
           </td>
           </tr>
@@ -356,6 +363,18 @@ export default {
     }
   },
   methods:{
+
+    getRiskRatingClass(riskRating) {
+      return {
+        'cell-red': riskRating === 'High Risk',
+        'cell-yellow': riskRating === 'Medium Risk',
+        'cell-green': riskRating === 'Low Risk'
+      };
+    },
+
+    isNegative(value) {
+      return value < 0;
+    },
 
     // ---------------------------------resource allocation methods------------------------------------------------
 
@@ -685,6 +704,35 @@ export default {
       }
     },
 
+
+    async updateResourceTableAtMount(){
+      try{
+
+        const response = await RiskScoringService.getSummaryScores();
+        this.scoredAuditeesAll = response.data;
+        let auditStatus = "";
+
+        for(let i =0; i<this.scoredAuditeesAll.length;i++){
+        if(this.scoredAuditeesAll[i].benchmarkResults==="Medium Risk" || this.scoredAuditeesAll[i].benchmarkResults==="High Risk"){
+          auditStatus = "For Audit"
+        }else{
+          auditStatus = "Not For Audit"
+        }        
+          let data = {
+            auditee: this.scoredAuditeesAll[i].auditee,
+            benchmarkResult: this.scoredAuditeesAll[i].benchmarkResults,
+            auditStatus:auditStatus      
+          }
+          const response2 = await ResourceService. updateResourceTable(this.scoredAuditeesAll[i].id,data);
+          console.log(response2)
+          console.log("Not bypassed2")
+      }
+
+    }catch(error){
+      console.log(error)
+    }
+  },
+
     async populateResourceTable(){
       try{
         const response = await ResourceService.retrieveResource();
@@ -846,7 +894,7 @@ export default {
       convertedValueGeneric2=0;
       for(let i=0;i<this.auditeesTreasury.length;i++){
         
-        if(this.adjustedManhoursAllocationTreasury[i]===0 || this.adjustedManhoursAllocationTreasury[i]===''|| isNaN(this.adjustedManhoursAllocationTreasury[i]) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.adjustedManhoursAllocationTreasury[i]}
+        // if(this.adjustedManhoursAllocationTreasury[i]===0 || this.adjustedManhoursAllocationTreasury[i]===''|| isNaN(this.adjustedManhoursAllocationTreasury[i]) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.adjustedManhoursAllocationTreasury[i]}
       
         if(this.auditeesTreasury[i].equalAllocation===0 || this.auditeesTreasury[i].equalAllocation===''|| isNaN(this.auditeesTreasury[i].equalAllocation) ) {convertedValueGeneric1 =0}else{convertedValueGeneric1=this.auditeesTreasury[i].equalAllocation}
         if(this.auditeesTreasury[i].manhourAdjustment===0 || this.auditeesTreasury[i].manhourAdjustment===''|| isNaN(this.auditeesTreasury[i].manhourAdjustment) ) {convertedValueGeneric2 =0}else{convertedValueGeneric2=this.auditeesTreasury[i].manhourAdjustment}
@@ -1172,7 +1220,9 @@ export default {
     try {
     this.retrieveDataFromDatabase();
     this.createResourceAllocations();
+    this.updateResourceTableAtMount();
     this.calculateAdjustedManhoursAllocation();
+    
   } catch (error) {
     console.error('Error during component mount:', error);
   }
