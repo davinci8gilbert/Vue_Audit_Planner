@@ -391,25 +391,231 @@ body {
 
   .main-container-box{
     margin:20px;
-    height: 800px;
+    height: 900px;
     padding: 6px;
-    background-color:  #cbc3c5;
+    background-color:  #ded9f5;
     color: aliceblue;
     border-radius: 15px;
     display:flex;
     justify-content: center;
-    flex-direction: column;
+    border: #c7b9f0 1px solid;
   }
 
-  .sub-container-box{
+  .sub-container-box1{
     display:flex;
-    margin: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    width:50%;
+    height:95%;
+    margin: 10px 20px;
     border:1px;
     border-style:solid;
-    border-radius: 4px;
-    justify-content: center;
+    border-radius: 10px;
     
   }
+
+  .sub-container-box2{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    width:50%;
+    height:95%;
+    margin: 10px 20px;
+    border:1px;
+    border-style:solid;
+    border-radius: 10px;
+  }
+
+  #box-newsarticle{
+    display:flex;
+    width:90%;
+    height:40%;
+    margin: 10px;
+    border:1px solid;
+    border-radius: 10px;
+  }
+
+#box-chart1{
+   display:flex;
+    width:95%;
+    height:30%;
+    margin: 10px;
+    border:1px solid;
+    border-radius: 10px;
+  
+}
+
+.chartone-container{
+  position: relative; 
+  height:200px; 
+  width:100%;
+  
+}
+
+.charttwo-container{
+  position: relative; 
+  height:100%; 
+  width:100%;
+  margin-top: 10px;
+  margin-left:7px;
+}
+
+#myChartOne{
+  border-radius: 20px;
+}
+
+#ChartOne{
+  
+  width: 95%;
+  height: 100%;
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-left: 20px;
+
+ 
+}
+
+#ChartTwo{
+  width: 90%;
+  height: 95%;
+  box-sizing: border-box;
+  margin: 10px;
+  margin: 10px;
+  border-radius: 10px;
+ 
+}
+#box-chart2{
+  display:flex;
+    width:40%;
+    height:95%;
+    margin: 10px;
+    border:1px solid;
+    border-radius: 20px;
+}
+
+#myChartTwo{
+  border-radius: 20px;
+}
+
+
+
+
+/* canvas {
+  height: 3%;
+} */
+
+#sub-container2{
+  display:flex;
+    width:95%;
+    height:70%;
+    margin: 10px;
+    border:1px solid;
+    border-radius: 10px;
+}
+
+
+
+#sub-container3{
+  display:flex;
+  flex-direction: column;
+  width:100%;
+  height:95%;
+  margin: 10px;
+  border:1px solid;
+  border-radius: 10px;
+}
+
+#box-chart3{
+  width:95%;
+  height:65%;
+  margin: 10px;
+  border:1px solid;
+  border-radius: 10px;
+}
+
+#ChartThree{
+  width: 98%;
+  height: 90%;
+  box-sizing: border-box;
+  margin: 10px;
+  margin: 10px;
+  border-radius: 10px;
+ 
+}
+#myChartThree{
+  border-radius: 20px;
+  margin-left: 8px;
+  
+}
+
+
+#box-chart4{
+  width:95%;
+  height:35%;
+  margin: 10px;
+  border:1px solid;
+  border-radius: 10px;
+}
+
+#myChartFour{
+  
+  border-radius: 20px;
+}
+
+.chartfour-container{
+  width: 100%;
+  height: 90%;
+}
+
+#ChartFour{
+  width: 98%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 10px;
+  margin: 10px;
+  border-radius: 10px;
+ 
+}
+
+#box-chart5{
+  display:flex;
+  width:90%;
+  height:60%;
+  margin: 10px;
+  border:1px solid;
+  border-radius: 10px;
+}
+
+/* #box-chart5{
+  width:95%;
+  height:35%;
+  margin: 10px;
+  border:1px solid;
+  border-radius: 10px;
+} */
+
+#myChartFive{
+  
+  border-radius: 20px;
+}
+
+.chartfive-container{
+  width: 100%;
+  height: 95%
+}
+
+#ChartFive{
+  width: 98%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 10px;
+  margin: 10px;
+  border-radius: 10px;
+ 
+}
+
 
   #box-dash{
     display:flex;
@@ -522,7 +728,7 @@ body {
   }
 
   #table2-title{
-    font-size: larger;
+    font-size:xx-large;
     font-weight: bold;
   }
 
@@ -675,10 +881,10 @@ body {
   }
 
   #buttonAll{
-    padding:10px;
-    box-shadow: 5px 5px #625ba0;
+    padding:10px 10px;
+    /* box-shadow: 5px 5px #625ba0; */
     background-color: #b693ec;
-    border-radius: 10px;
+    border-radius: 20px;
     color:white;
   }
 
@@ -706,6 +912,26 @@ body {
   #ralloc-units tr:first-child th:last-child{
     border-top-right-radius: 20px;
   }
+
+  .test{
+    color:#a230b4;
+    color:#584214;
+    color:#71cb2d;
+    color:#41eace;
+    color:#36e8d3;
+    color:#32b6e2;
+    color:#b8a6e7;
+    color:#da27a1;
+    color:#db299a;
+    color:#e0354e;
+    color:#f69191;
+    
+  }
+ 
+
+  /* #myChart{
+    width: 100%;
+  } */
 
   
 

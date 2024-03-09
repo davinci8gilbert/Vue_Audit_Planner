@@ -150,7 +150,7 @@
         <button id="buttonAll" v-if=btnConditionAlloc @click="postDataResource(), showAllocationTable()">Allocate Manhours</button>
         <button id="buttonAll" v-if=btnConditionEdit @click="editResource()">Edit Resource</button>
       </div>
-      <p id="table2-title" v-if="isAllocationTableShow">MANHOUR ALLOCATION FOR AUDIT ACTIVITIES</p>
+      <p id="table2-title" v-if="isAllocationTableShow">Manhour Allocation for Audit Activities</p>
       <table id="ralloc-units" v-if="isAllocationTableShow">
         <thead>
           <tr>

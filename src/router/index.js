@@ -8,6 +8,13 @@ import RiskScoring from "../components/RiskScoring";
 import MainLogin from "../components/MainLogin";
 import NavigationPageChief from "../components/NavigationPageChief";
 import PreviousAudit from "../components/PreviousAudit";
+import ChartOne from "../components/ChartOne";
+import ChartTwo from "../components/ChartTwo";
+import ChartThree from "../components/ChartThree";
+import ChartFour from "../components/ChartFour";
+import ChartFive from "../components/ChartFive";
+import NewsArticles from "../components/NewsArticles";
+
 
 const routes = [
         {
@@ -59,7 +66,51 @@ const routes = [
             name:"previousaudit",
             component: PreviousAudit
 
-        }
+        },
+
+        {
+            path: "/chartone",
+            name:"chartone",
+            component: ChartOne
+
+        },
+
+        {
+            path: "/charttwo",
+            name:"charttwo",
+            component: ChartTwo
+
+        },
+
+        {
+            path: "/chartthree",
+            name:"chartthree",
+            component: ChartThree
+
+        },
+
+        {
+            path: "/chartfour",
+            name:"chartfour",
+            component: ChartFour
+
+        },
+
+        {
+            path: "/chartfive",
+            name:"chartfive",
+            component: ChartFive
+
+        },
+
+        {
+            path: "/newsarticle",
+            name:"newsarticle",
+            component: NewsArticles
+
+        },
+
+
 
 ];
 
