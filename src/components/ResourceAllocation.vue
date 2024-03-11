@@ -1053,9 +1053,12 @@ export default {
 
     totalWorkHours:{
       handler(){
-        this.calculateTotalWorkHours();
         this.calculateSumTotalWorkHours();
+        // this.calculateTotalWorkHours();
         this.calculateAvailableHours();
+        
+        // this.calculateAvailableHours();
+        
       },
       deep:true
     },
@@ -1123,6 +1126,7 @@ export default {
 
     availHoursForAudit:{
       handler(){
+        
         this.calculateExcessShort();
         this.calculateAvailHouursTotal();
         // this.calculateTotals();

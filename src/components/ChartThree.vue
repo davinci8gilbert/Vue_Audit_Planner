@@ -228,7 +228,10 @@
                  title: {
                     display: true,
                     text: 'Overall No. of Incidents and Audit Issues By Sector',
-                    color: '#260655'
+                    color: '#260655',
+                    font:{
+                      size: 17
+                    }
                 }
 
               },

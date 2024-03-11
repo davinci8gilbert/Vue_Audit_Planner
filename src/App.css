@@ -395,10 +395,10 @@ body {
     padding: 6px;
     background-color:  #ded9f5;
     color: aliceblue;
-    border-radius: 15px;
+    border-radius: 20px;
     display:flex;
     justify-content: center;
-    border: #c7b9f0 1px solid;
+    /* border: #c7b9f0 1px solid; */
   }
 
   .sub-container-box1{
@@ -409,9 +409,9 @@ body {
     width:50%;
     height:95%;
     margin: 10px 20px;
-    border:1px;
-    border-style:solid;
-    border-radius: 10px;
+    /* border:1px; */
+    /* border-style:solid; */
+    border-radius: 20px;
     
   }
 
@@ -423,18 +423,50 @@ body {
     width:50%;
     height:95%;
     margin: 10px 20px;
-    border:1px;
-    border-style:solid;
-    border-radius: 10px;
+    /* border:1px; */
+    /* border-style:solid; */
+    border-radius: 20px;
   }
 
   #box-newsarticle{
     display:flex;
+    flex-direction: column;
     width:90%;
     height:40%;
     margin: 10px;
-    border:1px solid;
-    border-radius: 10px;
+    /* border:1px solid; */
+    /* border-radius: 10px; */
+  }
+
+  #carousel-news{
+    width:60%;
+    height:85%;
+    margin: 10px;
+    padding: 10px;
+    /* border:1px solid; */
+    border-radius: 20px;
+    margin-top: 10px;
+    background-color: #eeebf8;
+  }
+  
+  #news-title{
+    margin-bottom: 2px;
+    color: #260655;
+    font-size:20px;
+    font-weight:bolder;
+  }
+  
+  #references-news{
+    width:35%;
+    height:92%;
+    margin: 10px;
+    /* border:1px solid; */
+    border-radius: 20px;
+    background-color: #eeebf8;
+  }
+
+  .newsandref{
+    display: flex;
   }
 
 #box-chart1{
@@ -442,21 +474,21 @@ body {
     width:95%;
     height:30%;
     margin: 10px;
-    border:1px solid;
-    border-radius: 10px;
+    /* border:1px solid; */
+    border-radius: 20px;
   
 }
 
 .chartone-container{
   position: relative; 
-  height:200px; 
+  height:230px; 
   width:100%;
   
 }
 
 .charttwo-container{
   position: relative; 
-  height:100%; 
+  height:570px; 
   width:100%;
   margin-top: 10px;
   margin-left:7px;
@@ -464,14 +496,18 @@ body {
 
 #myChartOne{
   border-radius: 20px;
+  padding:0;
+  margin:0;
+  
+  
 }
 
 #ChartOne{
   
   width: 95%;
-  height: 100%;
+  height: 110%;
   box-sizing: border-box;
-  margin-top: 20px;
+  margin-top: 0px;
   margin-left: 20px;
 
  
@@ -483,7 +519,7 @@ body {
   box-sizing: border-box;
   margin: 10px;
   margin: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
  
 }
 #box-chart2{
@@ -491,7 +527,7 @@ body {
     width:40%;
     height:95%;
     margin: 10px;
-    border:1px solid;
+    /* border:1px solid; */
     border-radius: 20px;
 }
 
@@ -511,8 +547,8 @@ body {
     width:95%;
     height:70%;
     margin: 10px;
-    border:1px solid;
-    border-radius: 10px;
+    /* border:1px solid; */
+    border-radius: 20px;
 }
 
 
@@ -523,16 +559,16 @@ body {
   width:100%;
   height:95%;
   margin: 10px;
-  border:1px solid;
-  border-radius: 10px;
+  /* border:1px solid; */
+  border-radius: 20px;
 }
 
 #box-chart3{
   width:95%;
   height:65%;
   margin: 10px;
-  border:1px solid;
-  border-radius: 10px;
+  /* border:1px solid; */
+  border-radius: 20px;
 }
 
 #ChartThree{
@@ -541,7 +577,7 @@ body {
   box-sizing: border-box;
   margin: 10px;
   margin: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
  
 }
 #myChartThree{
@@ -555,8 +591,8 @@ body {
   width:95%;
   height:35%;
   margin: 10px;
-  border:1px solid;
-  border-radius: 10px;
+  /* border:1px solid; */
+  border-radius: 20px;
 }
 
 #myChartFour{
@@ -566,7 +602,7 @@ body {
 
 .chartfour-container{
   width: 100%;
-  height: 90%;
+  height: 220px;
 }
 
 #ChartFour{
@@ -575,17 +611,18 @@ body {
   box-sizing: border-box;
   margin: 10px;
   margin: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
  
 }
 
 #box-chart5{
   display:flex;
+  flex-direction: row;
   width:90%;
   height:60%;
   margin: 10px;
-  border:1px solid;
-  border-radius: 10px;
+  /* border:1px solid; */
+  border-radius: 20px;
 }
 
 /* #box-chart5{
@@ -602,8 +639,9 @@ body {
 }
 
 .chartfive-container{
-  width: 100%;
-  height: 95%
+  width: 48%;
+  height: 95%;
+  margin: 10px;
 }
 
 #ChartFive{
@@ -612,8 +650,58 @@ body {
   box-sizing: border-box;
   margin: 10px;
   margin: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
  
+}
+
+#myChartFive2{
+  
+  border-radius: 20px;
+}
+
+.chartfive2-container{
+  width: 70%;
+  height: 70%;
+  margin-top: 0;
+  margin-left: 85px;
+  /* border:1px solid; */
+  border-radius: 20px;
+}
+
+#ChartFive2{
+  width: 90%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 10px;
+  border-radius: 20px;
+ 
+}
+#titlechart5_2{
+  padding:0;
+  margin-top:9px;
+  color: #260655;
+  font-size: 410;
+  font-weight:800;
+  font-family:Arial;
+
+
+}
+
+
+.chartfive2-container-outer{
+  width: 50%;
+  height: 95%;
+  margin: 10px;
+  border:1px solid;
+  border-radius: 20px;
+  background-color: #eeebf8;
+}
+
+.chart5-inner-container{
+  display: flex;
+  padding-left:15px;
+  justify-content: center;
+
 }
 
 
@@ -927,6 +1015,45 @@ body {
     color:#f69191;
     
   }
+
+  .policiesandstandards{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    justify-content: left;
+  }
+
+  img{
+    width: 20px;
+    margin-top: 3px;
+    margin-right: 10px;
+    margin-left: 20px;
+  }
+
+  #titleReference{
+    color: #260655;
+    font-size: large;
+    font-weight:550
+  }
+
+  #textlabelref{
+    padding:0;
+    margin:2px;
+  }
+
+  /* Target the canvas element containing the chart */
+/* #myChartFive2 {
+  position: relative;
+  width:30% /* Make sure the canvas container is positioned */
+/* } */ 
+
+/* Adjust the position of the canvas */
+/* #myChartFive2 canvas { */
+  /* position: absolute; */
+  /* top: 10px; Adjust this value to move the doughnut closer to the title */
+/* } */
+  
+
  
 
   /* #myChart{

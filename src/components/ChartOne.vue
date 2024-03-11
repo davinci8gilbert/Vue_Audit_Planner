@@ -267,7 +267,10 @@ async mounted(){
                 title: {
                   display: true,
                   text: 'No. of Units Per Sector By Unit Risk Rating',
-                  color: '#260655'
+                  color: '#260655',
+                  font:{
+                    size: 17
+                  }
                 },
 
                 legend: {

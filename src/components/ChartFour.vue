@@ -116,7 +116,10 @@ async mounted(){
                title: {
                     display: true,
                     text: 'Top 10 Units Based on Number of Incidents',
-                    color: '#260655'
+                    color: '#260655',
+                    font:{
+                      size: 17
+                    }
                 }
             },
             maintainAspectRatio: false, // Set to false to allow adjusting the chart size
