@@ -67,7 +67,7 @@ async mounted(){
     const data = {
     labels: labels,
     datasets: [{
-        label: 'Top 10 Units',
+        label: 'Number of Incidents',
         data: [20, 18, 15, 12, 10, 10, 8, 9, 8, 7, 4],
         backgroundColor: [
         // '#a230b4',

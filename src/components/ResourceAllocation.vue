@@ -280,14 +280,30 @@
           
 
       </table>
+      
     </div>
+
+    
   </div>
+  <div v-if="displayToastBox" id="toastBox">
+            <div v-if="displaySuccessToast" class="toastCheck">
+                <img :src="imageCheck" class="imageCheck"/>
+                {{ successMsg }}
+            </div>
+            <div v-if="displayCancelToast" class="toastCancel">
+                <img :src="imageCancel" class="imageCancel"/>
+                {{ cancelMsg }}
+            </div>
+        </div>
+  
 </template>
 
 <script>
 import AuditorService from "@/services/AuditorService";
 import RiskScoringService from "@/services/RiskScoringService";
-import ResourceService from "@/services/ResourceService"
+import ResourceService from "@/services/ResourceService";
+import ImgCheck from '@/assets/checkmark.png'
+import ImgCancel from '@/assets/cancelmark.png'
 export default {
   name: "ResourceAllocation",
   data(){
@@ -358,7 +374,14 @@ export default {
       equalAllocationOperations:[],
       equalAllocationLending:[],
       equalAllocationTech:[],
-      equalAllocationTreasury:[]
+      equalAllocationTreasury:[],
+      imageCheck: ImgCheck,
+      imageCancel: ImgCancel,
+      successMsg:'Successfully Saved.',
+      cancelMsg: 'All inputs have been cleared.',
+      displayToastBox:false,
+      displaySuccessToast: false,
+      displayCancelToast: false,
 
     }
   },
@@ -910,7 +933,7 @@ export default {
           for(let i=0;i<this.auditeesOperations.length;i++){
           let data={
             equalAllocation:this.auditeesOperations[i].equalAllocation,
-            adjustedManhours:this.auditeesOperations[i].adjustedManhours,
+            adjustedManhours:this.finalAdjustedMHOperations[i],
             auditStatus: this.auditeesOperations[i].auditStatus,
             manhourAdjustment: this.auditeesOperations[i].manhourAdjustment,
             overrideReason: this.auditeesOperations[i].overrideReason
@@ -931,7 +954,7 @@ export default {
           for(let i=0;i<this.auditeesCredit.length;i++){
         let data={
            equalAllocation:this.auditeesCredit[i].equalAllocation,
-            adjustedManhours:this.auditeesCredit[i].adjustedManhours,
+            adjustedManhours:this.finalAdjustedMHLending[i],
             auditStatus: this.auditeesCredit[i].auditStatus,
             manhourAdjustment: this.auditeesCredit[i].manhourAdjustment,
             overrideReason: this.auditeesCredit[i].overrideReason
@@ -953,7 +976,9 @@ export default {
           let data={
           
             equalAllocation:this.auditeesTech[i].equalAllocation,
-            adjustedManhours:this.auditeesTech[i].adjustedManhours,
+            
+            // adjustedManhours:this.auditeesTech[i].adjustedManhours,
+            adjustedManhours:this.finalAdjustedMHTech[i],
             auditStatus: this.auditeesTech[i].auditStatus,
             manhourAdjustment: this.auditeesTech[i].manhourAdjustment,
             overrideReason: this.auditeesTech[i].overrideReason
@@ -974,7 +999,7 @@ export default {
           let data={
           
            equalAllocation:this.auditeesTreasury[i].equalAllocation,
-            adjustedManhours:this.auditeesTreasury[i].adjustedManhours,
+            adjustedManhours:this.finalAdjustedMHTreasury[i],
             auditStatus: this.auditeesTreasury[i].auditStatus,
             manhourAdjustment: this.auditeesTreasury[i].manhourAdjustment,
             overrideReason: this.auditeesTreasury[i].overrideReason
@@ -990,13 +1015,32 @@ export default {
         const response2 = await AuditorService.putAdjustedManhours(this.id,data2)
         console.log(response2)
          }
-         window.alert("You have successfully saved any changes made.");
+
+         this.saveToast()
+
+
+        //  window.alert("You have successfully saved any changes made.");
+
+
+
+
 
       }catch(error){
         console.log(error)
       }
       
     },
+
+    saveToast(){       
+        this.displayToastBox=true;
+            this.displaySuccessToast=true;
+            setTimeout(()=>{
+            this.displayToastBox=false;
+            this.displaySuccessToast=false;
+
+            },3000)
+    
+      },  
     clearInputs(){
       if(this.id==1){
         for(let i=0;i<this.auditeesOperations.length;i++){
@@ -1025,8 +1069,19 @@ export default {
           this.auditeesTreasury[i].overrideReason='';
         }
       }
-      window.alert("Inputs will be cleared.  Click the 'Save Adjusted Manhours' to save the changes. If erroneously clicked, do not save the changes.");
-    }
+      this.cancelScore();
+    },
+
+    cancelScore(){           
+            this.displayToastBox=true;
+            this.displayCancelToast=true;
+            setTimeout(()=>{
+              this.displayToastBox=false;
+              this.displayCancelToast=false;
+
+            },3000)
+
+        },
 
   },
   watch: {

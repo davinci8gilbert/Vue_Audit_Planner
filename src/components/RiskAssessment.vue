@@ -68,7 +68,21 @@
                    
     </table>
       
-       <RiskScoring v-if="showRiskScoring  " :unit="unit" :getUpdateSave="getUpdateSave"  :clearChecking="clearChecking"  />
+       <RiskScoring v-if="showRiskScoring  " :unit="unit" :getUpdateSave="getUpdateSave"  :clearChecking="clearChecking" :cancelScore="cancelScore"  />
+       <PreviousAudit v-show="false" :unit="unit"/>
+
+       <div v-if="displayToastBox" id="toastBox">
+            <div v-if="displaySuccessToast" class="toastCheck">
+                <img :src="imageCheck" class="imageCheck"/>
+                {{ successMsg }}
+            </div>
+            <div v-if="displayCancelToast" class="toastCancel">
+                <img :src="imageCancel" class="imageCancel"/>
+                {{ cancelMsg }}
+            </div>
+
+
+        </div>
   </div>
 </template>
 
@@ -76,11 +90,14 @@
 import RiskScoring from "@/components/RiskScoring";
 // import AuditeeService from "@/services/AuditeeService";
 import RiskScoringService from "@/services/RiskScoringService";
+import PreviousAudit from "./PreviousAudit.vue";
+import ImgCheck from '@/assets/checkmark.png'
+import ImgCancel from '@/assets/cancelmark.png'
 
 export default {
   name: "RiskAssessment",
   components:{
-    RiskScoring
+    RiskScoring,PreviousAudit
   },
   data(){
     return{
@@ -123,7 +140,15 @@ export default {
       counter:0,
       totalSummaryScores:0,
       nonZeroScoreCount:0,
-      benchmarkActual:''
+      benchmarkActual:'',
+      toastBox:null,
+      imageCheck: ImgCheck,
+      imageCancel: ImgCancel,
+      successMsg:'Successfully Saved',
+      cancelMsg: 'Cancelled. Changes are not saved.',
+      displayToastBox:false,
+      displaySuccessToast: false,
+      displayCancelToast: false,
 
     }
   },
@@ -164,12 +189,36 @@ export default {
     clearChecking(savedDone){
       if(savedDone===true){
         this.isChecked= new Array(length).fill(false);
+        this.showRiskScoring=false;
+       
+        this.displayToastBox=true;
+            this.displaySuccessToast=true;
+            setTimeout(()=>{
+                // document.getElementById('toastBox').remove();
+            this.displayToastBox=false;
+            this.displaySuccessToast=false;
+
+            },3000)
       
-      }  
+      }   
       
       },  
-   getUpdateSave(value){
-      this.showRiskScoring = value;
+
+      cancelScore(value){           
+            // window.alert("Your changes will not be saved!");
+            this.showRiskScoring=value;
+            this.displayToastBox=true;
+            this.displayCancelToast=true;
+            setTimeout(()=>{
+              this.displayToastBox=false;
+              this.displayCancelToast=false;
+
+            },3000)
+
+        },
+  
+   getUpdateSave(){
+      // this.showRiskScoring = value;
       this.isChecked= new Array(length).fill(false);
    },
    async getAllSummaryScores() {

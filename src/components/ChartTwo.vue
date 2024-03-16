@@ -218,7 +218,7 @@ export default {
                     text: 'No. of Audit Issues Per Sector By Risk Rating',
                     color: '#260655',
                     font:{
-                    size: 12
+                    size: 15
                   }
                     },
 

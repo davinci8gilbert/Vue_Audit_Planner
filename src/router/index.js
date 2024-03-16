@@ -14,6 +14,10 @@ import ChartThree from "../components/ChartThree";
 import ChartFour from "../components/ChartFour";
 import ChartFive from "../components/ChartFive";
 import NewsArticles from "../components/NewsArticles";
+import ExpandedChartOne from "../components/ExpandedChartOne";
+import ExpandedChartTwo from "../components/ExpandedChartTwo";
+import ManhourAllocationReport from "@/components/ManhourAllocationReport.vue";
+
 
 
 const routes = [
@@ -109,6 +113,29 @@ const routes = [
             component: NewsArticles
 
         },
+
+        {
+            path: "/expandedchartone",
+            name:"expandedchartsone",
+            component: ExpandedChartOne
+
+        },
+
+        {
+            path: "/expandedcharttwo",
+            name:"expandedcharttwo",
+            component: ExpandedChartTwo
+
+        },
+
+        {
+            path: "/manhourallocationreport",
+            name:"manhourallocationreport",
+            component: ManhourAllocationReport
+
+        },
+
+
 
 
 

@@ -4,6 +4,9 @@
         <div class="pop-header">RISK SCORING</div>
 
         <span id="pop-unitname">Unit Name: {{ unit }}</span>
+        <div id="buttonContainerPrev">
+        <button id="buttonAll" @click="openPrevious()">Previous Year</button>
+     </div>
         <table class="table-score">
             <tr>
                 <th rowspan="2">Factor</th>
@@ -57,7 +60,7 @@
                 <tr v-for="(item, index) in factorsForScoring" :key="index">    
                     <td class="unit"><label> {{item.factorName}}</label></td>               
                     <td><select v-model="orInternalProcessesRiskScore[index]">
-                        <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
+                        <option v-for="score in scores" :key="score" :value="score" :class="getScoreColor(score)">{{ score }}</option>
                     </select></td>
                     <td><select v-model="orFraudaAndMisconductRiskScore[index]">
                         <option v-for="score in scores" :key="score" :value="score">{{ score }}</option>
@@ -114,21 +117,27 @@
             <p></p>
             <div class="button-riskscore">
             <button id="buttonAll" @click="saveScores(), getUpdateSave(false)">Save</button>
-            <button id="buttonAll" @click="getUpdateSave(false),cancel()">Cancel</button>
+            <button id="buttonAll" @click="getUpdateSave(false),cancelScore(false)">Cancel</button>
             </div>
         </table>
+
     </div>
   </div>
+  <PreviousAudit v-if="showPrevious"  :closePrevious="closePrevious" :unit="unit"/>
 </template>
 
 <script>
 import RiskScoringService from '@/services/RiskScoringService';
+import PreviousAudit from './PreviousAudit.vue';
+
 export default {
     name: "RiskScoring",
+    components:{PreviousAudit},
     props:{
         unit:String,
         getUpdateSave:Function,
-        clearChecking:Function
+        clearChecking:Function,
+        cancelScore:Function
     },
     data(){
         return {
@@ -156,10 +165,34 @@ export default {
             unitSelected:'',
             totalScore:0,
             factorWithScores:{},
-            factorId:0,           
+            factorId:0,  
+            toastBox:null,
+            showPrevious:false
+            
+                   
         }
     },
     methods:{
+        openPrevious(){
+            this.showPrevious=true;
+        },
+
+        closePrevious(value){
+           if(value==false){
+            this.showPrevious=false;
+           }
+        },
+
+        getScoreColor(score) {
+        if (score >= 0 && score <= 3) {
+            return 'green-score';
+        } else if (score >= 4 && score <= 7) {
+            return 'yellow-score';
+        } else if (score >= 8 && score <= 10) {
+            return 'red-score';
+        }
+    },
+
         retrieveUnitsForScoring(){
             RiskScoringService.getAssessmentScores()
                 .then(response =>{
@@ -225,18 +258,11 @@ export default {
                     console.log(error);
                 })
             }
-            window.alert("You have successfully saved the scores!");
+            
             this.clearChecking(true);            
-            this.$router.push({ name: "auditornavigation" }).then(() => {
-            window.location.reload(true); // Perform a hard refresh
-            });
-
-            // this.hardRefresh();
             
         },
-        cancel(){           
-            window.alert("Your changes will not be saved!");
-        },
+        
   
     },
     created() {
@@ -270,6 +296,26 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+#buttonContainerPrev{
+    background: #311b71;
+    margin-bottom: 3px;
+    padding:0;
+}
+
+#buttonAll{
+    display:flex;
+    
+
+}
+button{
+    margin-top:0;
+    /* margin-bottom:px; */
+}
+
+button:hover {
+    margin:0px;
+    cursor: pointer;
+  }
 
 </style>
