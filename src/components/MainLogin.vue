@@ -1,6 +1,9 @@
 <template>
+   <div class="circular" :style="{ 'background-image': 'url(' + imageUrl + ')', 'background-size': 'cover', 'background-repeat': 'no-repeat' }">
+
    <div class="login-container">
-   <div class="login-form">
+   <p id="loginpageText">ANNUAL AUDIT PLANNER</p>
+    <div class="login-form">
         <h1 id="login-head">Login</h1>
         <form>
 
@@ -20,18 +23,21 @@
         <!-- <p>{{ message }}</p> -->
     </div>
 </div>
+</div>
 </template>
 
 <script>
 import LoginService from "../services/LoginService";
 import '../App.css'
+import techImage from '@/assets/growth.jpg'; // Import the image file
 
 export default {
     name: "mainLogin",
     data() {
         return {
             employeeLoginRequest: { userName: "", password: "" },
-            message: ""
+            message: "",
+            imageUrl: techImage // Store the image URL in a variable
         }
 
     },
@@ -77,4 +83,30 @@ export default {
 }
 
 </script>
-<style></style>
+<style scoped>
+/* @import '@/assets/tech.jpg'; */
+
+#loginpageText{
+    text-align: center;
+    font-size:5em;
+     margin-left: 50px;
+     font-weight: 700;
+     color: white;
+     /* color:#260655; */
+}
+.circular{
+    height: 100vh;
+    width: 100%;
+    position: absolute
+    
+}
+
+
+/* body{
+    background-image: url('@/assets/tech.jpg');
+    /* background:cover; */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+/* }  */
+
+</style>

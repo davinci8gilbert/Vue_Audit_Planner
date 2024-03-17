@@ -153,7 +153,7 @@ export default {
       this.showChart4=false;
       this.showChart5=false;
       this.showChart6=false;
-
+      
     }
   }
 }

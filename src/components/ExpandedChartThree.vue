@@ -1,6 +1,6 @@
 <template>
-    <div class="backdropCharts" @click="collapseChart(false)">
-      <div class="chart3-container-expanded"><canvas id="myChartThreeExpanded"></canvas></div>
+    <div class="backdropCharts" @click="handleBackdropClick()">
+      <div class="chart3-container-expanded" @click="collapseChart(false)"><canvas id="myChartThreeExpanded" @click="collapseChart(false)"></canvas></div>
      
     </div>
   </template>
@@ -41,10 +41,26 @@
         ccoIncidentCount:0,
         compliancesIncidentCount:0,
         technologyIncidentCount:0,
+        myChartThree:null,
     }
   },
 
   methods:{
+    handleBackdropClick() {    
+      try {
+        
+        if (this.myChartThree) {
+          this.myChartThree.destroy();
+          
+        }
+      } catch (error) {
+        // Handle the error gracefully
+        console.error("An error occurred while handling the click event:", error);
+      }
+    
+      this.collapseChart(false);
+    },
+    
     async getAllPreviousAudit() {
             try {
             const response = await PreviousService.retrievePrevAuditData();
@@ -54,14 +70,9 @@
             console.log(error);
             }
         },
-  },
 
-
- async mounted(){
-      
-    await this.getAllPreviousAudit();
-
-    for(let i=0; i < this.prevauditAll.length; i++){
+        createChart(){
+          for(let i=0; i < this.prevauditAll.length; i++){
         if(this.prevauditAll[i].auditee.sector == 'Global Markets'){
           this.gmIssueCount+=(this.prevauditAll[i].numberHighRiskIssues+this.prevauditAll[i].numberMediumRiskIssues+this.prevauditAll[i].numberLowRiskIssues);
           this.gmIncidentCount+=(this.prevauditAll[i].numberHighRiskIncidents+this.prevauditAll[i].numberMediumRiskIncidents+this.prevauditAll[i].numberLowRiskIncidents);
@@ -207,7 +218,7 @@
           }
         }
           
-      const myChartThree = new Chart(ctx,{
+      return new Chart(ctx,{
           type: 'doughnut',
           data: data,
           options: { 
@@ -250,7 +261,17 @@
           plugins:[plugin,doughnutLabel],
       });
   
-    myChartThree;
+    // myChartThree;
+        }
+  },
+
+
+ async mounted(){
+      
+    await this.getAllPreviousAudit();
+    this.myChartThree=this.createChart();
+
+   
 
     
   

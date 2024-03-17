@@ -1,10 +1,10 @@
 <template>
-    <div class="backdrop" @click="collapseChart(false)">
+    <div class="backdrop" @click="handleBackdropClick()">
     <div class="chart6-inner-container_expanded">
       <!-- <div class="chartfive-container"><canvas id="myChartFive"></canvas></div> -->
       <!-- <div class="chartfive2-container-outer">-->
         <p id="titlechart5_2_expanded">Audits With Satisfactory Ratings Against Total</p> 
-      <div class="chartfive2-container-expanded"><canvas id="myChartFive2Expanded"></canvas></div>
+      <div class="chartfive2-container-expanded" @click="collapseChart(false)"><canvas id="myChartFive2Expanded" @click="collapseChart(false)"></canvas></div>
     <!-- </div> -->
     </div>
 </div>
@@ -24,11 +24,26 @@
     return{
       prevauditAll:[],
       countAudits:new Array(5).fill(0),
-      countNonSatisfactoryAudit:0
+      countNonSatisfactoryAudit:0,
+      myChartSix:null
     }
   },
   
   methods:{
+    handleBackdropClick() {
+      try {
+        // Check if myChart is defined
+        if (this.myChartSix) {
+          this.myChartSix.destroy();
+         
+        }
+      } catch (error) {
+        // Handle the error gracefully
+        console.error("An error occurred while handling the click event:", error);
+      }
+    
+      this.collapseChart(false);
+    },
     async getAllPreviousAudit() {
               try {
               const response = await PreviousService.retrievePrevAuditData();
@@ -38,13 +53,9 @@
               console.log(error);
               }
           },
-  },
-  
-  async mounted(){
-      
-      await this.getAllPreviousAudit();
-  
-      this.prevauditAll.forEach(unit => {
+
+          createChart(){
+            this.prevauditAll.forEach(unit => {
       if(unit.auditRating=='Satisfactory'){
         this.countAudits[0]++;
       } else if(unit.auditRating=='Needs Improvement'){
@@ -59,11 +70,7 @@
   
       });
   
-  
-  
-  // ------------------------------------------------------------------Chart2-------------------------------------------------------
-  
-  
+
     const ctx2 = document.getElementById('myChartFive2Expanded');
     const chartWidth = document.querySelector('.chartfive2-container-expanded').getBoundingClientRect().width -46;
     console.log(chartWidth)
@@ -146,7 +153,7 @@
            
          };
           
-      const myChartFive2 = new Chart(ctx2,{
+      return new Chart(ctx2,{
           type: 'doughnut',
           data: data2,
           options: { 
@@ -201,7 +208,17 @@
           plugins:[plugin2],
       });
   
-    myChartFive2;
+   
+          }
+  },
+
+  
+  async mounted(){
+      
+      await this.getAllPreviousAudit();
+      this.myChartSix=this.createChart();
+  
+      
   
     
   
