@@ -1,6 +1,6 @@
 <template>
-    <div class="backdropCharts" @click="collapseChart(false)">
-      <div class="chart-container-expanded"><canvas id="myChartOneExpanded"></canvas></div>
+    <div class="backdropCharts" @click="handleBackdropClick()">
+      <div class="chart-container-expanded" @click="collapseChart(false)"><canvas id="myChartOneExpanded" @click="collapseChart(false)"></canvas></div>
     </div>
   </template>
   
@@ -25,6 +25,7 @@
           highRiskCount:new Array(11).fill(0),
           mediumRiskCount:new Array(11).fill(0),
           lowRiskCount:new Array(11).fill(0),
+          myChartOne:null
       }
   },
   
@@ -39,14 +40,24 @@
         console.log(error);
       }
   },
-  
-  },
-  
-  async mounted(){
-      
-      await this.getAllPreviousAudit();
-  
-      const ctx = document.getElementById('myChartOneExpanded');
+
+  handleBackdropClick() {
+      try {
+        // Check if myChart is defined
+        if (this.myChartOne) {
+          this.myChartOne.destroy();
+         
+        }
+      } catch (error) {
+        // Handle the error gracefully
+        console.error("An error occurred while handling the click event:", error);
+      }
+    
+      this.collapseChart(false);
+    },
+
+  createChart(){
+    const ctx = document.getElementById('myChartOneExpanded');
   
       const labels = ['GM','CFS','Operations','HC','Finance','RM','Strategy','Legal','CCO','Compliance','Technology'];
       for(let i=0; i < this.prevauditAll.length; i++){
@@ -268,7 +279,7 @@
       
       };
           
-      const myChartOne = new Chart(ctx,{
+      return new Chart(ctx,{
           type: 'bar',
           data: data,
           options: { 
@@ -336,7 +347,17 @@
           plugins:[plugin],
       });
   
-    myChartOne;
+    
+  },
+  
+  },
+  
+  async mounted(){
+      
+      await this.getAllPreviousAudit();
+      this.myChartOne = this.createChart();
+  
+      
   
   }
    

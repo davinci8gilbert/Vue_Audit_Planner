@@ -1,7 +1,7 @@
 <template>
    <div class="circular" :style="{ 'background-image': 'url(' + imageUrl + ')', 'background-size': 'cover', 'background-repeat': 'no-repeat' }">
 
-   <div class="login-container">
+   <div class="login-container" >
    <p id="loginpageText">ANNUAL AUDIT PLANNER</p>
     <div class="login-form">
         <h1 id="login-head">Login</h1>
@@ -91,7 +91,7 @@ export default {
     font-size:5em;
      margin-left: 50px;
      font-weight: 700;
-     color: white;
+     color:white;
      /* color:#260655; */
 }
 .circular{

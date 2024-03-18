@@ -3,11 +3,7 @@
      
     <div class="ralloc-table-print" >
      <h2 id="header">Manhours Allocation Summary By Team</h2>
-     <div class="filterunit">
-       <select v-model="selectedTeam" @change="getAuditableUnits(selectedTeam)">
-        <option v-for="(team,index) in auditTeam" :key="index" :value="team"  >{{ team }}</option>
-       </select>
-     </div>
+     
      <table id="ralloc-units-print">
         <thead>
         <tr>
@@ -154,6 +150,123 @@ import AuditorService from '@/services/AuditorService';
         }
 
     },
+          calculateHeadcountTotal(){
+               let sum=0;  
+               for(let i=0; i<4;i++){
+                    if(this.headcount[i]===0 || this.headcount[i]===''|| isNaN(this.headcount[i]) ) {this.convertedValue =0}else{this.convertedValue=this.headcount[i]}
+                    // console.log(this.headcount[i])
+                    sum+=this.convertedValue;
+               }
+               this.headcount[4] = sum;     
+          },
+
+          calculateNumberOfWorkDaysTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.numberOfWorkDays[i]===0 || this.numberOfWorkDays[i]===''|| isNaN(this.numberOfWorkDays[i]) ) {this.convertedValue =0}else{this.convertedValue=this.numberOfWorkDays[i]}
+          sum+=this.convertedValue;
+        }      
+      this.numberOfWorkDays[4]=sum;
+    },
+
+    calculateSumTotalWorkHours(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.totalWorkHours[i]===0 || this.totalWorkHours[i]===''|| isNaN(this.totalWorkHours[i]) ) {this.convertedValue =0}else{this.convertedValue=this.totalWorkHours[i]}
+          sum+=this.convertedValue;
+        }      
+      this.totalWorkHours[4]=sum;
+    },
+
+    calculateAnnualLeavesTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.annualLeaves[i]===0 || this.annualLeaves[i]===''|| isNaN(this.annualLeaves[i]) ) {this.convertedValue =0}else{this.convertedValue=this.annualLeaves[i]}
+          sum+=this.convertedValue;
+        }      
+      this.annualLeaves[4]=sum;
+    },
+
+    calculateMaternityLeavesTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.maternityLeave[i]===0 || this.maternityLeave[i]===''|| isNaN(this.maternityLeave[i]) ) {this.convertedValue =0}else{this.convertedValue=this.maternityLeave[i]}
+          sum+=this.convertedValue;
+        }      
+      this.maternityLeave[4]=sum;
+    },
+
+    calculateAnnualPlanActTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.annualPlanningAct[i]===0 || this.annualPlanningAct[i]===''|| isNaN(this.annualPlanningAct[i]) ) {this.convertedValue =0}else{this.convertedValue=this.annualPlanningAct[i]}
+          sum+=this.convertedValue;
+        }      
+      this.annualPlanningAct[4]=sum;
+    },
+
+    calculateContAuditTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.continuousAudit[i]===0 || this.continuousAudit[i]===''|| isNaN(this.continuousAudit[i]) ) {this.convertedValue =0}else{this.convertedValue=this.continuousAudit[i]}
+          sum+=this.convertedValue;
+        }      
+      this.continuousAudit[4]=sum;
+    },
+
+    calculateAdminActTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.adminActivities[i]===0 || this.adminActivities[i]===''|| isNaN(this.adminActivities[i]) ) {this.convertedValue =0}else{this.convertedValue=this.adminActivities[i]}
+          sum+=this.convertedValue;
+        }      
+      this.adminActivities[4]=sum;
+    },
+
+    calculateContBudgetTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.contingencyBudget[i]===0 || this.contingencyBudget[i]===''|| isNaN(this.contingencyBudget[i]) ) {this.convertedValue =0}else{this.convertedValue=this.contingencyBudget[i]}
+          sum+=this.convertedValue;
+        }      
+      this.contingencyBudget[4]=sum;
+    },
+
+    calculateTotalAdjustmentTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.totalAdjustment[i]===0 || this.totalAdjustment[i]===''|| isNaN(this.totalAdjustment[i]) ) {this.convertedValue =0}else{this.convertedValue=this.totalAdjustment[i]}
+          sum+=this.convertedValue;
+        }      
+      this.totalAdjustment[4]=sum;
+    },
+
+    calculateAvailHouursTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.availHoursForAudit[i]===0 || this.availHoursForAudit[i]===''|| isNaN(this.availHoursForAudit[i]) ) {this.convertedValue =0}else{this.convertedValue=this.availHoursForAudit[i]}
+          sum+=this.convertedValue;
+        }      
+      this.availHoursForAudit[4]=sum;
+    },
+
+    calculateAllocatedMHTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.actualAllocManhours[i]===0 || this.actualAllocManhours[i]===''|| isNaN(this.actualAllocManhours[i]) ) {this.convertedValue =0}else{this.convertedValue=this.actualAllocManhours[i]}
+          sum+=this.convertedValue;
+        }      
+        this.actualAllocManhours[4]=sum;
+    },
+
+    calculateExcessShortTotal(){
+      let sum=0;      
+        for(let i=0; i<4;i++){
+          if(this.excessShort[i]===0 || this.excessShort[i]===''|| isNaN(this.excessShort[i]) ) {this.convertedValue =0}else{this.convertedValue=this.excessShort[i]}
+          sum+=this.convertedValue;
+        }      
+      this.excessShort[4]=sum;
+    },
 
            async printPageArea(areaID){
                
@@ -227,6 +340,19 @@ import AuditorService from '@/services/AuditorService';
        async mounted(){
         //    await this.getAuditableUnits('All Teams')
         await this.retrieveDataFromDatabase();
+        this.calculateHeadcountTotal();
+        this.calculateNumberOfWorkDaysTotal();
+        this.calculateSumTotalWorkHours();
+        this.calculateAnnualLeavesTotal();
+        this.calculateMaternityLeavesTotal();
+        this.calculateAnnualPlanActTotal();
+        this.calculateContAuditTotal();
+        this.calculateAdminActTotal();
+        this.calculateContBudgetTotal();
+        this.calculateTotalAdjustmentTotal();
+        this.calculateAvailHouursTotal();
+        this.calculateAllocatedMHTotal();
+        this.calculateExcessShortTotal();
 
        }
    }

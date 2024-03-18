@@ -97,6 +97,13 @@ export default {
                   }
                 })
 
+                
+                const date = new Date(this.dateOfAudit);
+
+                const formattedDate = date.toISOString().split('T')[0];
+                console.log(formattedDate); // Output: 2023-01-30
+                this.dateOfAudit=formattedDate;
+
 
                 } catch (error) {
                 console.log(error);
@@ -112,27 +119,55 @@ export default {
 <style scoped>
 
 #ralloc-units-print{
-  width: 30%;
+  width: 50%;
+  height: 50%;
   position: fixed;
-  margin-left:800px;
+  
+ 
+  margin-left:450px;
   margin-top: 200px;
 }
+
+#ralloc-units-print th {
+    padding: 10px;
+    font-size: 1.5em;
+   
+  }
+
 #ralloc-units-print th:first-child {
     border-top-left-radius: 10px;
   }
-#ralloc-units-print td:first-child {
-    width:50%;
+#ralloc-units-print td:first-child { 
     margin:auto
   }
 
   #ralloc-units-print th:last-child {
-    /* border-top-left-radius: 10px; */
     border-top-right-radius: 10px;
   }
 
   #ralloc-units-print td{
     background-color: white;
+    font-size: 1.5em;
+    
   }
+
+  #ralloc-units-print td:first-child{
+    background-color: white;
+    font-weight: bolder;
+    width: 50%
+  }
+
+  #ralloc-units-print td:nth-child(2) {
+  text-align: center;
+}
+
+#ralloc-units-print tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+#ralloc-units-print tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
 
   .backdrop{
     display:flex;
