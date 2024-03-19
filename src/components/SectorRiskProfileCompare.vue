@@ -42,7 +42,7 @@
              var link = document.createElement('a');
 
              // Set attributes for downloading the image
-             link.setAttribute("download", "123456.png");
+             link.setAttribute("download", "PrevYear_Vs_CurrYear_Risk_Profile_Sector.png");
              link.setAttribute("href", canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
 
              // Append the <a> element to the document body

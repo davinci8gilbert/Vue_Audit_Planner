@@ -91,7 +91,7 @@ export default {
             const Table2Excel = window.Table2Excel;
             const table2excel = new Table2Excel()
             
-            table2excel.export(document.querySelectorAll(areaID));
+            table2excel.export(document.querySelectorAll(areaID),"Final_Manhour_Allocation");
 
         },
         

@@ -275,7 +275,7 @@ import AuditorService from '@/services/AuditorService';
                  var link = document.createElement('a');
    
                  // Set attributes for downloading the image
-                 link.setAttribute("download", "123456.png");
+                 link.setAttribute("download", "Resource_Summary.png");
                  link.setAttribute("href", canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
    
                  // Append the <a> element to the document body
@@ -296,7 +296,9 @@ import AuditorService from '@/services/AuditorService';
                const Table2Excel = window.Table2Excel;
                const table2excel = new Table2Excel()
                
-               table2excel.export(document.querySelectorAll(areaID));
+               table2excel.export(document.querySelectorAll(areaID),"Manhours_Allocation_Summary_By_Team"
+               
+               );
    
            },
            
